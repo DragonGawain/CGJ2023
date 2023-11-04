@@ -11,9 +11,19 @@ public class UIManager : MonoBehaviour
     public GameObject playButton;
     public GameObject levelSelectedButton;
     public EventSystem eventSystem;
+    public GameObject SubmitNavigationEffect;
+    public GameObject BaseNavigationEffect;
+    public GameObject NavigationEffectContainer;
 
+    public void OnButtonSelect()
+    {
+        Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+    }
+    
     public void OnPlayButtonClick()
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         mainMenuPage.SetActive(false);
 
         levelSelectPage.SetActive(true);
@@ -23,6 +33,8 @@ public class UIManager : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_WEBPLAYER
@@ -34,11 +46,15 @@ public class UIManager : MonoBehaviour
 
     public void OnLevelSelectButtonClick(string selectedLevelName)
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         SceneManager.LoadScene(selectedLevelName);
     }
 
     public void OnLevelSelectBackButtonClick()
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         levelSelectPage.SetActive(false);
 
         mainMenuPage.SetActive(true);

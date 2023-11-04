@@ -15,6 +15,15 @@ public class InGameUIManager : MonoBehaviour
     public GameObject clearScreenPage;
     public GameObject clearDefaultSelected;
     public GameObject timeDisplayText;
+    public GameObject SubmitNavigationEffect;
+    public GameObject BaseNavigationEffect;
+    public GameObject levelClearEffect;
+    public GameObject NavigationEffectContainer;
+
+    public void OnButtonSelect()
+    {
+        Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+    }
 
     public void OnPausePressed(InputAction.CallbackContext callbackContext)
     {
@@ -29,6 +38,8 @@ public class InGameUIManager : MonoBehaviour
     
     public void OnResumeButtonClick()
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         pauseScreenPage.SetActive(false);
 
         inGameUI.SetActive(true);
@@ -38,6 +49,8 @@ public class InGameUIManager : MonoBehaviour
 
     public void OnLevelClear(float referenceTime, float currentTimeElapsed, int tier)
     {
+        Instantiate(levelClearEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         inGameUI.SetActive(false);
 
         var minutes = Mathf.Floor(referenceTime - currentTimeElapsed / 60);
@@ -57,11 +70,15 @@ public class InGameUIManager : MonoBehaviour
 
     public void OnQuitButtonClick(string mainMenuSceneName)
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
     public void OnNextButtonClick(string nextSceneName)
     {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         SceneManager.LoadScene(nextSceneName);
     }
 }
