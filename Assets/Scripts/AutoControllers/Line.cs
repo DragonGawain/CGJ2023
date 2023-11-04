@@ -14,7 +14,10 @@ public class Line : MonoBehaviour
     List<Transform> stringNodes = new List<Transform>();
 
     [SerializeField, Range(0f, 20f)]
-    float segmentLength = 5f;
+    float segmentLength = 1f;
+
+    [SerializeField, Range(0f, 20f)]
+    float pullSpeed = 0.5f;
 
     private void Awake()
     {
@@ -35,11 +38,70 @@ public class Line : MonoBehaviour
     private void FixedUpdate()
     {
         // Determine the positions of the nodes on the line
-        // first node singularity
+        
 
+        // standard nodes
+        for (int i = 0; i < 8; i++)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i + 1].position,
+                    pullSpeed
+                );
+            }
+        }
 
-        // last node singularity
+        // Backwards pass
+        for (int i = 8; i > 0; i--)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i - 1].position,
+                    pullSpeed
+                );
+            }
+        }
 
+        // backwards pass singularity - cat
+        if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
+        {
+            stringNodes[0].position = Vector3.MoveTowards(
+                stringNodes[0].position,
+                Cat.transform.position,
+                pullSpeed
+            );
+        }
+
+        // first node singularity -> cat
+        // We do this one second so that the cat has priority on pulling the string, rather than the string have priority on pulling the cat
+        if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
+        {
+            Cat.transform.position = Vector3.MoveTowards(
+                Cat.transform.position,
+                stringNodes[0].position,
+                pullSpeed
+            );
+        }
+
+        // last node singularity -> rabbit
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[8].position) > segmentLength)
+        {
+            Rabbit.transform.position = Vector3.MoveTowards(
+                Rabbit.transform.position,
+                stringNodes[8].position,
+                pullSpeed
+            );
+        }
         // draw the line
         lineRenderer.SetPosition(0, Cat.transform.position);
         for (int i = 0; i < 9; i++)
