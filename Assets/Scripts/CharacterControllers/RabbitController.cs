@@ -21,6 +21,10 @@ public class RabbitController : MonoBehaviour
     float maxSpeed = 12f;
     float maxSpeedChange;
 
+    [SerializeField]
+    GameObject lineObject;
+    Line line;
+
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -29,6 +33,8 @@ public class RabbitController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
         collisionBox = GetComponent<BoxCollider2D>();
+
+        line = lineObject.GetComponent<Line>();
     }
 
     // Start is called before the first frame update
@@ -53,5 +59,8 @@ public class RabbitController : MonoBehaviour
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
         body.velocity = velocity;
+
+        if (body.velocity.x != 0 || body.velocity.y != 0)
+            line.rabbitMove();
     }
 }

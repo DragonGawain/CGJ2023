@@ -22,6 +22,10 @@ public class CatController : MonoBehaviour
     float maxSpeedChange;
     double dashDirection;
 
+    [SerializeField]
+    GameObject lineObject;
+    Line line;
+
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -30,6 +34,8 @@ public class CatController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
         collisionBox = GetComponent<BoxCollider2D>();
+
+        line = lineObject.GetComponent<Line>();
     }
 
     // Start is called before the first frame update
@@ -55,5 +61,8 @@ public class CatController : MonoBehaviour
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
         body.velocity = velocity;
+
+        if (body.velocity.x != 0 || body.velocity.y != 0)
+            line.catMove();
     }
 }
