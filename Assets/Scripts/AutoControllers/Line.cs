@@ -38,10 +38,10 @@ public class Line : MonoBehaviour
     private void FixedUpdate()
     {
         // Determine the positions of the nodes on the line
-        
 
-        // standard nodes
-        for (int i = 0; i < 8; i++)
+
+        // center to rabbit
+        for (int i = 22; i < 44; i++)
         {
             if (
                 Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
@@ -56,8 +56,8 @@ public class Line : MonoBehaviour
             }
         }
 
-        // Backwards pass
-        for (int i = 8; i > 0; i--)
+        // center to cat
+        for (int i = 22; i > 0; i--)
         {
             if (
                 Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
@@ -72,7 +72,26 @@ public class Line : MonoBehaviour
             }
         }
 
-        // backwards pass singularity - cat
+        // Backwards passes
+        // if (Vector3.Distance(stringNodes[45].position, stringNodes[44].position) > segmentLength)
+        // {
+        //     stringNodes[45].position = Vector3.MoveTowards(
+        //         stringNodes[45].position,
+        //         stringNodes[44].position,
+        //         pullSpeed
+        //     );
+        // }
+
+        // if (Vector3.Distance(stringNodes[0].position, stringNodes[1].position) > segmentLength)
+        // {
+        //     stringNodes[0].position = Vector3.MoveTowards(
+        //         stringNodes[0].position,
+        //         stringNodes[1].position,
+        //         pullSpeed
+        //     );
+        // }
+
+        // backwards pass singularity -> cat
         if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
         {
             stringNodes[0].position = Vector3.MoveTowards(
@@ -93,21 +112,31 @@ public class Line : MonoBehaviour
             );
         }
 
+        // backwards pass singularity -> rabbit
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[44].position) > segmentLength)
+        {
+            stringNodes[44].position = Vector3.MoveTowards(
+                stringNodes[44].position,
+                Rabbit.transform.position,
+                pullSpeed
+            );
+        }
+
         // last node singularity -> rabbit
-        if (Vector3.Distance(Rabbit.transform.position, stringNodes[8].position) > segmentLength)
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[44].position) > segmentLength)
         {
             Rabbit.transform.position = Vector3.MoveTowards(
                 Rabbit.transform.position,
-                stringNodes[8].position,
+                stringNodes[44].position,
                 pullSpeed
             );
         }
         // draw the line
         lineRenderer.SetPosition(0, Cat.transform.position);
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 45; i++)
         {
             lineRenderer.SetPosition(i + 1, stringNodes[i].position);
         }
-        lineRenderer.SetPosition(10, Rabbit.transform.position);
+        lineRenderer.SetPosition(46, Rabbit.transform.position);
     }
 }
