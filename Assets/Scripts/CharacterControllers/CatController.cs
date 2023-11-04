@@ -35,6 +35,8 @@ public class CatController : MonoBehaviour
     const int jumpTimerReset = 25;
     int jumpTimer = 0;
 
+    private Animator animatorController;
+
     const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
 
@@ -52,7 +54,7 @@ public class CatController : MonoBehaviour
 
         line = lineObject.GetComponent<Line>();
 
-        Time.timeScale = 1.5f;
+        animatorController = this.gameObject.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -79,9 +81,22 @@ public class CatController : MonoBehaviour
         body.velocity = velocity;
 
         if (body.velocity.x != 0 || body.velocity.y != 0)
+        {
             line.setCatMoving(true);
+        }
         else
+        {
             line.setCatMoving(false);
+        }
+
+        if (body.velocity.x != 0)
+        {
+            animatorController.SetBool("isWalking", true);
+        }
+        else
+        {
+            animatorController.SetBool("isWalking", false);
+        }
 
         // jump
         if (isGrounded && !isJumping)
@@ -98,13 +113,19 @@ public class CatController : MonoBehaviour
             jump();
             isJumping = true;
             jumpTimer = jumpTimerReset;
+
+            animatorController.SetBool("isJumping", true);
         }
 
         if (jumpTimer > 0)
             jumpTimer--;
 
         if (isGrounded && isJumping && jumpTimer <= 0)
+        {
             isJumping = false;
+
+            animatorController.SetBool("isJumping", false);
+        }
 
         if (!isGrounded && !isJumping && coyoteTimer == -1)
             coyoteTimer = coyoteTimerReset;
@@ -122,6 +143,8 @@ public class CatController : MonoBehaviour
             dash();
             isDashing = true;
             dashTimer = dashTimerReset;
+
+            animatorController.SetBool("isDashing", true);
         }
 
         if (dashTimer > 0)
@@ -131,6 +154,8 @@ public class CatController : MonoBehaviour
         {
             isDashing = false;
             hasDash = 1;
+
+            animatorController.SetBool("isDashing", false);
         }
     }
 
