@@ -109,6 +109,19 @@ public class Line : MonoBehaviour
                 pullSpeed * 2
             );
         }
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+        // PUT FULL BACKWARDS PASS (not just node 20)
+
     }
 
     public void rabbitMove()
@@ -158,6 +171,18 @@ public class Line : MonoBehaviour
                 pullSpeed * 2
             );
         }
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
+        // PUT FULL BACKWARDS PASS (not just node 0)
     }
 
     public void bothMove()

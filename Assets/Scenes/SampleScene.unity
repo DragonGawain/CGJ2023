@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAcceleration: 100
   maxSpeed: 12
-  jumpForce: 7
+  jumpForce: 15
   lineObject: {fileID: 1254706095}
 --- !u!114 &496972255
 MonoBehaviour:
@@ -906,7 +906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAcceleration: 100
   maxSpeed: 12
-  jumpForce: 5
+  jumpForce: 15
+  dashForce: 50
   lineObject: {fileID: 1254706095}
 --- !u!114 &2027730343
 MonoBehaviour:
@@ -941,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 533360803956887010, guid: 65bb2221796f14f64aa9c6154899b2a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 533360803956887010, guid: 65bb2221796f14f64aa9c6154899b2a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1176,8 +1177,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4865060937625458575, guid: eef14fab8917e4d33a792184346b6331, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.243382
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865060937625458575, guid: eef14fab8917e4d33a792184346b6331, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4321
+      value: -4.4777
       objectReference: {fileID: 0}
     - target: {fileID: 4865060937625458575, guid: eef14fab8917e4d33a792184346b6331, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1238,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5088501523319031716, guid: 775e6c65a883a4b9b8fe11039bca28a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 5088501523319031716, guid: 775e6c65a883a4b9b8fe11039bca28a0, type: 3}
       propertyPath: m_LocalPosition.z

@@ -9,22 +9,38 @@ public class CatController : MonoBehaviour
         desiredVelocity,
         velocity;
     bool isGrounded,
-        catOnRabbit;
+        isJumping = false,
+        isDashing = false;
     Ground ground;
     Rigidbody2D body;
-    BoxCollider2D collisionBox;
 
     [SerializeField, Range(0f, 100f)]
     float maxAcceleration = 100f;
 
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 12f;
+
+    [SerializeField, Range(0f, 50)]
+    float jumpForce = 15;
+
+    [SerializeField, Range(0f, 100)]
+    float dashForce = 50;
     float maxSpeedChange;
-    double dashDirection;
+    float dashDirection;
 
     [SerializeField]
     GameObject lineObject;
     Line line;
+    int hasJumps = 1;
+    const int jumpTimerReset = 25;
+    int jumpTimer = 0;
+
+    const int coyoteTimerReset = 10;
+    int coyoteTimer = 0;
+
+    int hasDash = 1;
+    const int dashTimerReset = 25;
+    int dashTimer = 0;
 
     private void Awake()
     {
@@ -33,9 +49,10 @@ public class CatController : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
-        collisionBox = GetComponent<BoxCollider2D>();
 
         line = lineObject.GetComponent<Line>();
+
+        Time.timeScale = 1.5f;
     }
 
     // Start is called before the first frame update
@@ -45,9 +62,8 @@ public class CatController : MonoBehaviour
     void Update()
     {
         isGrounded = ground.GetIsCatGrounded();
-        catOnRabbit = ground.GetIsCatOnRabbit();
         catMove = inputs.Player.MoveCat.ReadValue<Vector2>();
-        dashDirection = inputs.Player.CatDash.ReadValue<double>();
+        dashDirection = inputs.Player.CatDash.ReadValue<float>();
     }
 
     private void FixedUpdate()
@@ -66,5 +82,73 @@ public class CatController : MonoBehaviour
             line.setCatMoving(true);
         else
             line.setCatMoving(false);
+
+        // jump
+        if (isGrounded && !isJumping)
+        {
+            hasJumps = 1;
+            coyoteTimer = -1;
+        }
+
+        if (
+            (catMove.y > 0 && hasJumps > 0 && jumpTimer <= 0)
+            || (coyoteTimer > 0 && catMove.y > 0 && hasJumps > 0 && jumpTimer <= 0)
+        )
+        {
+            jump();
+            isJumping = true;
+            jumpTimer = jumpTimerReset;
+        }
+
+        if (jumpTimer > 0)
+            jumpTimer--;
+
+        if (isGrounded && isJumping && jumpTimer <= 0)
+            isJumping = false;
+
+        if (!isGrounded && !isJumping && coyoteTimer == -1)
+            coyoteTimer = coyoteTimerReset;
+
+        if (coyoteTimer > 0)
+            coyoteTimer--;
+
+        if (coyoteTimer == 0 && !isJumping)
+            hasJumps--;
+
+        // Dash
+        // We have a *very* dashing cat (blush)
+        if (dashDirection != 0 && hasDash > 0 && dashTimer <= 0 && !isDashing)
+        {
+            dash();
+            isDashing = true;
+            dashTimer = dashTimerReset;
+        }
+
+        if (dashTimer > 0)
+            dashTimer--;
+
+        if (isGrounded && isDashing && dashTimer <= 0)
+        {
+            isDashing = false;
+            hasDash = 1;
+        }
+    }
+
+    private void jump()
+    {
+        body.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        hasJumps--;
+    }
+
+    private void dash()
+    {
+        if (dashDirection > 0)
+        {
+            body.AddForce(transform.right * dashForce, ForceMode2D.Impulse);
+        }
+        else if (dashDirection < 0)
+        {
+            body.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
+        }
     }
 }
