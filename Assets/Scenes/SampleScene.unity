@@ -406,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAcceleration: 100
   maxSpeed: 12
-  jumpForce: 25
+  jumpForce: 15
   lineObject: {fileID: 1254706095}
 --- !u!114 &496972255
 MonoBehaviour:
@@ -906,7 +906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAcceleration: 100
   maxSpeed: 12
-  jumpForce: 20
+  jumpForce: 15
+  dashForce: 50
   lineObject: {fileID: 1254706095}
 --- !u!114 &2027730343
 MonoBehaviour:

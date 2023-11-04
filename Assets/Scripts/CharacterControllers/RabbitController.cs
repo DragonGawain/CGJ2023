@@ -9,10 +9,9 @@ public class RabbitController : MonoBehaviour
         desiredVelocity,
         velocity;
     bool isGrounded,
-        isJumping;
+        isJumping = false;
     Ground ground;
     Rigidbody2D body;
-    BoxCollider2D collisionBox;
 
     [SerializeField, Range(0f, 100f)]
     float maxAcceleration = 100f;
@@ -20,8 +19,8 @@ public class RabbitController : MonoBehaviour
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 12f;
 
-    [SerializeField, Range(0f, 200f)]
-    float jumpForce = 125f;
+    [SerializeField, Range(0f, 50)]
+    float jumpForce = 15;
     float maxSpeedChange;
 
     [SerializeField]
@@ -41,7 +40,6 @@ public class RabbitController : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
-        collisionBox = GetComponent<BoxCollider2D>();
 
         line = lineObject.GetComponent<Line>();
     }
