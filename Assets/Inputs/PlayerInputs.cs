@@ -37,6 +37,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""CatDash"",
+                    ""type"": ""Value"",
+                    ""id"": ""470ff254-8271-484e-8a2c-8ae336816bc7"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""a02398b9-23a5-46b1-a246-efce025528d7"",
@@ -293,6 +302,39 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveRabbit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""cb76f474-a2f5-4f4e-85d5-b9b202d84056"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CatDash"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""dc11086e-2cbf-4f4e-98af-d494ed31d972"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CatDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""53b52938-7942-451c-a388-10efb134f15e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CatDash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -881,6 +923,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveCat = m_Player.FindAction("MoveCat", throwIfNotFound: true);
+        m_Player_CatDash = m_Player.FindAction("CatDash", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_MoveRabbit = m_Player.FindAction("MoveRabbit", throwIfNotFound: true);
@@ -956,6 +999,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MoveCat;
+    private readonly InputAction m_Player_CatDash;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_MoveRabbit;
@@ -964,6 +1008,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         private @PlayerInputs m_Wrapper;
         public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveCat => m_Wrapper.m_Player_MoveCat;
+        public InputAction @CatDash => m_Wrapper.m_Player_CatDash;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @MoveRabbit => m_Wrapper.m_Player_MoveRabbit;
@@ -979,6 +1024,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @MoveCat.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCat;
                 @MoveCat.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCat;
                 @MoveCat.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCat;
+                @CatDash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatDash;
+                @CatDash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatDash;
+                @CatDash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatDash;
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
@@ -995,6 +1043,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @MoveCat.started += instance.OnMoveCat;
                 @MoveCat.performed += instance.OnMoveCat;
                 @MoveCat.canceled += instance.OnMoveCat;
+                @CatDash.started += instance.OnCatDash;
+                @CatDash.performed += instance.OnCatDash;
+                @CatDash.canceled += instance.OnCatDash;
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
@@ -1161,6 +1212,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMoveCat(InputAction.CallbackContext context);
+        void OnCatDash(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnMoveRabbit(InputAction.CallbackContext context);
