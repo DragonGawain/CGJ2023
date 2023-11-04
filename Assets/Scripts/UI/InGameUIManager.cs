@@ -35,6 +35,17 @@ public class InGameUIManager : MonoBehaviour
 
         Time.timeScale = 0.0f;
     }
+
+    public void OnPauseClicked()
+    {
+        inGameUI.SetActive(false);
+
+        pauseScreenPage.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(pauseDefaultSelected);
+
+        Time.timeScale = 0.0f;
+    }
     
     public void OnResumeButtonClick()
     {
@@ -70,6 +81,8 @@ public class InGameUIManager : MonoBehaviour
 
     public void OnQuitButtonClick(string mainMenuSceneName)
     {
+        Time.timeScale = 1.0f;
+
         Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         SceneManager.LoadScene(mainMenuSceneName);
