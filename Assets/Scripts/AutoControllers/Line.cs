@@ -5,8 +5,8 @@ using UnityEngine;
 public class Line : MonoBehaviour
 {
     [SerializeField]
-    GameObject Cat,
-        Rabbit,
+    GameObject cat,
+        rabbit,
         stringNodesParent;
 
     LineRenderer lineRenderer;
@@ -28,6 +28,10 @@ public class Line : MonoBehaviour
 
     bool centerFlipFlop = false;
 
+    GameObject Cat,
+        Rabbit;
+    bool swapped = false;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -36,6 +40,8 @@ public class Line : MonoBehaviour
         {
             stringNodes.Add(node);
         }
+        Cat = cat;
+        Rabbit = rabbit;
     }
 
     // Start is called before the first frame update
@@ -121,7 +127,6 @@ public class Line : MonoBehaviour
         // PUT FULL BACKWARDS PASS (not just node 20)
         // PUT FULL BACKWARDS PASS (not just node 20)
         // PUT FULL BACKWARDS PASS (not just node 20)
-
     }
 
     public void rabbitMove()
@@ -197,8 +202,6 @@ public class Line : MonoBehaviour
             timerRab = timerReset;
             timerCat = timerReset;
 
-            
-
             for (int i = 11; i <= 20; i++)
             {
                 if (
@@ -245,7 +248,11 @@ public class Line : MonoBehaviour
             {
                 stringNodes[10].position = new Vector3(
                     Vector3
-                        .MoveTowards(stringNodes[10].position, stringNodes[11].position, pullSpeed/2)
+                        .MoveTowards(
+                            stringNodes[10].position,
+                            stringNodes[11].position,
+                            pullSpeed / 2
+                        )
                         .x,
                     stringNodes[10].position.y,
                     stringNodes[10].position.z
@@ -255,7 +262,11 @@ public class Line : MonoBehaviour
             {
                 stringNodes[10].position = new Vector3(
                     Vector3
-                        .MoveTowards(stringNodes[10].position, stringNodes[9].position, pullSpeed/2)
+                        .MoveTowards(
+                            stringNodes[10].position,
+                            stringNodes[9].position,
+                            pullSpeed / 2
+                        )
                         .x,
                     stringNodes[10].position.y,
                     stringNodes[10].position.z
@@ -408,5 +419,20 @@ public class Line : MonoBehaviour
     public void setCatMoving(bool val)
     {
         isCatMoving = val;
+    }
+
+    public void swapPlaces()
+    {
+        swapped = !swapped;
+        if (swapped)
+        {
+            Cat = rabbit;
+            Rabbit = cat;
+        }
+        else
+        {
+            Cat = cat;
+            Rabbit = rabbit;
+        }
     }
 }

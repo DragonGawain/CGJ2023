@@ -30,7 +30,7 @@ public class RabbitController : MonoBehaviour
     const int jumpTimerReset = 25;
     int jumpTimer = 0;
 
-    const int coyoteTimerReset = 10;
+    const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
 
     private void Awake()
