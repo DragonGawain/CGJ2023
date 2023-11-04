@@ -6,17 +6,24 @@ public class Line : MonoBehaviour
 {
     [SerializeField]
     GameObject Cat,
-        Rabbit;
+        Rabbit,
+        stringNodesParent;
 
     LineRenderer lineRenderer;
-    MeshCollider meshCollider;
 
-    Mesh mesh;
+    List<Transform> stringNodes = new List<Transform>();
+
+    [SerializeField, Range(0f, 20f)]
+    float segmentLength = 5f;
 
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        meshCollider = GetComponent<MeshCollider>();
+
+        foreach (Transform node in stringNodesParent.transform)
+        {
+            stringNodes.Add(node);
+        }
     }
 
     // Start is called before the first frame update
@@ -27,14 +34,18 @@ public class Line : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 sp = Cat.transform.position;
-        Vector3 ep = Rabbit.transform.position;
-        lineRenderer.numCapVertices = 20;
-        lineRenderer.numCornerVertices = 20;
-        lineRenderer.SetPosition(0, sp);
-        lineRenderer.SetPosition(19, ep);
-        mesh = new Mesh();
-        lineRenderer.BakeMesh(mesh, true);
-        meshCollider.sharedMesh = mesh;
+        // Determine the positions of the nodes on the line
+        // first node singularity
+
+
+        // last node singularity
+
+        // draw the line
+        lineRenderer.SetPosition(0, Cat.transform.position);
+        for (int i = 0; i < 9; i++)
+        {
+            lineRenderer.SetPosition(i + 1, stringNodes[i].position);
+        }
+        lineRenderer.SetPosition(10, Rabbit.transform.position);
     }
 }
