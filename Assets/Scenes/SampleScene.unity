@@ -605,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 496972249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.53, y: 2.61, z: 0}
-  m_LocalScale: {x: 1, y: 1.97, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1241,7 +1241,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1254706098}
   - component: {fileID: 1254706097}
-  m_Layer: 0
+  - component: {fileID: 1254706099}
+  m_Layer: 11
   m_Name: THE_STRING_BETWEEN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,13 +1369,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254706095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.109, y: 2.382, z: -0.004582523}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254706099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254706095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36ca778f190c4947878d8b8685b3d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cat: {fileID: 2027730336}
+  Rabbit: {fileID: 496972249}
 --- !u!1 &1823352977
 GameObject:
   m_ObjectHideFlags: 0
