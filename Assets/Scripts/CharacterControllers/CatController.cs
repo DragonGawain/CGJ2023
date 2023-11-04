@@ -35,11 +35,11 @@ public class CatController : MonoBehaviour
     const int jumpTimerReset = 25;
     int jumpTimer = 0;
 
-    const int coyoteTimerReset = 10;
+    const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
 
     int hasDash = 1;
-    const int dashTimerReset = 25;
+    const int dashTimerReset = 20;
     int dashTimer = 0;
 
     private void Awake()

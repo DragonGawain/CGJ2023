@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Slider timerDrainBar;
     public InGameUIManager inGameUIManager;
     private PlayerInputs inputs;
+
     public enum medalTiers
     {
         Gold = 1,
@@ -18,15 +19,25 @@ public class GameManager : MonoBehaviour
         Bronze = 3,
         None = 4
     }
+
     public medalTiers currentTier = medalTiers.Gold;
+
+    [SerializeField]
+    GameObject Cat,
+        Rabbit,
+        lineObject;
+    Line line;
 
     private void Awake()
     {
         inputs = new PlayerInputs();
         inputs.Player.Enable();
         inputs.Player.Pause.performed += inGameUIManager.OnPausePressed;
+        inputs.Player.Swap.performed += swap;
+
+        line = lineObject.GetComponent<Line>();
     }
-    
+
     private void FixedUpdate()
     {
         if (currentTime > 0.0f)
@@ -67,5 +78,13 @@ public class GameManager : MonoBehaviour
     public void ClearGame()
     {
         inGameUIManager.OnLevelClear(maxSeconds, currentTime, (int)currentTier);
+    }
+
+    private void swap(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        Vector3 temp = Cat.transform.position;
+        Cat.transform.position = Rabbit.transform.position;
+        Rabbit.transform.position = temp;
+        line.swapPlaces();
     }
 }
