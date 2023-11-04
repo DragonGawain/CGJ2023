@@ -7,7 +7,7 @@ public class Ground : MonoBehaviour
     // private bool isGrounded;
     bool isCatGrounded;
     bool isRabbitGrounded;
-    
+
     bool catOnRabbit;
     bool rabbitOnCat;
     private float friction;
@@ -66,7 +66,6 @@ public class Ground : MonoBehaviour
 
     private void EvaluateCatCollision(Collision2D col)
     {
-        Debug.Log("COL");
         for (int i = 0; i < col.contactCount; i++)
         {
             if (col.gameObject.layer == 6 || col.gameObject.layer == 7)
@@ -125,6 +124,7 @@ public class Ground : MonoBehaviour
     {
         return isCatGrounded;
     }
+
     public bool GetIsCatOnRabbit()
     {
         return catOnRabbit;
@@ -140,5 +140,4 @@ public class Ground : MonoBehaviour
     {
         return rabbitOnCat;
     }
-
 }

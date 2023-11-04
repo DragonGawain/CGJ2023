@@ -22,9 +22,6 @@ public class CatController : MonoBehaviour
     float maxSpeedChange;
     double dashDirection;
 
-    const int timerReset = 20;
-    int timer = 0;
-
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -59,8 +56,8 @@ public class CatController : MonoBehaviour
 
         body.velocity = velocity;
 
-        // Make cat fall through rabbit land
-
+        // Make rabbit fall through cat land
+        // Ground
         RaycastHit2D ray1 = Physics2D.Raycast(
             new Vector2(body.position.x, body.position.y),
             new Vector2(0f, 0.5f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)))
@@ -79,7 +76,7 @@ public class CatController : MonoBehaviour
 
         RaycastHit2D ray3 = Physics2D.Raycast(
             new Vector2(body.position.x, body.position.y),
-            new Vector2(0.5f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
+            new Vector2(0.6f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
                 * 1f,
             1f,
             LayerMask.GetMask("RabbitGround")
@@ -87,10 +84,44 @@ public class CatController : MonoBehaviour
 
         RaycastHit2D ray4 = Physics2D.Raycast(
             new Vector2(body.position.x, body.position.y),
-            new Vector2(0.5f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
+            new Vector2(0.6f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
                 * -1f,
             1f,
             LayerMask.GetMask("RabbitGround")
+        );
+
+        // Wall
+
+        RaycastHit2D ray5 = Physics2D.Raycast(
+            new Vector2(body.position.x, body.position.y),
+            new Vector2(0f, 0.5f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)))
+                * 1f,
+            1f,
+            LayerMask.GetMask("RabbitWall")
+        );
+
+        RaycastHit2D ray6 = Physics2D.Raycast(
+            new Vector2(body.position.x, body.position.y),
+            new Vector2(0f, 0.5f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)))
+                * -1f,
+            1f,
+            LayerMask.GetMask("RabbitWall")
+        );
+
+        RaycastHit2D ray7 = Physics2D.Raycast(
+            new Vector2(body.position.x, body.position.y),
+            new Vector2(0.6f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
+                * 1f,
+            1f,
+            LayerMask.GetMask("RabbitWall")
+        );
+
+        RaycastHit2D ray8 = Physics2D.Raycast(
+            new Vector2(body.position.x, body.position.y),
+            new Vector2(0.6f * (transform.localScale.x / Mathf.Abs(transform.localScale.x)), 0f)
+                * -1f,
+            1f,
+            LayerMask.GetMask("RabbitWall")
         );
 
         if (
@@ -102,5 +133,22 @@ public class CatController : MonoBehaviour
             collisionBox.enabled = false;
         else
             collisionBox.enabled = true;
+
+        if (
+            ray5.collider != null
+            || ray6.collider != null
+            || ray7.collider != null
+            || ray8.collider != null
+        )
+        {
+            collisionBox.enabled = false;
+            body.constraints =
+                RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            collisionBox.enabled = true;
+            body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 }
