@@ -147,7 +147,15 @@ public class CatController : MonoBehaviour
         }
         else
         {
-            collisionBox.enabled = true;
+            if (
+                ray1.collider == null
+                && ray2.collider == null
+                && ray3.collider == null
+                && ray4.collider == null
+            )
+            {
+                collisionBox.enabled = true;
+            }
             body.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
