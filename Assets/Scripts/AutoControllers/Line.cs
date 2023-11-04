@@ -23,7 +23,8 @@ public class Line : MonoBehaviour
     bool isRabbitMoving = false;
 
     const int timerReset = 5;
-    int timer = 0;
+    int timerRab = 0;
+    int timerCat = 0;
 
     bool centerFlipFlop = false;
 
@@ -168,29 +169,10 @@ public class Line : MonoBehaviour
             && Vector3.Distance(stringNodes[10].position, stringNodes[9].position) > segmentLength
         )
         {
-            timer = timerReset;
+            timerRab = timerReset;
+            timerCat = timerReset;
 
-            if (centerFlipFlop)
-            {
-                stringNodes[10].position = new Vector3(
-                    Vector3
-                        .MoveTowards(stringNodes[10].position, stringNodes[11].position, pullSpeed)
-                        .x,
-                    stringNodes[10].position.y,
-                    stringNodes[10].position.z
-                );
-            }
-            else
-            {
-                stringNodes[10].position = new Vector3(
-                    Vector3
-                        .MoveTowards(stringNodes[10].position, stringNodes[9].position, pullSpeed)
-                        .x,
-                    stringNodes[10].position.y,
-                    stringNodes[10].position.z
-                );
-            }
-            centerFlipFlop = !centerFlipFlop;
+            
 
             for (int i = 11; i <= 20; i++)
             {
@@ -202,7 +184,7 @@ public class Line : MonoBehaviour
                     stringNodes[i].position = Vector3.MoveTowards(
                         stringNodes[i].position,
                         stringNodes[i - 1].position,
-                        pullSpeed
+                        pullSpeed * 2
                     );
                 }
             }
@@ -217,7 +199,7 @@ public class Line : MonoBehaviour
                     stringNodes[i].position = Vector3.MoveTowards(
                         stringNodes[i].position,
                         stringNodes[i + 1].position,
-                        pullSpeed
+                        pullSpeed * 2
                     );
                 }
             }
@@ -233,12 +215,34 @@ public class Line : MonoBehaviour
             //     stringNodes[10].position,
             //     pullSpeed
             // );
+
+            if (centerFlipFlop)
+            {
+                stringNodes[10].position = new Vector3(
+                    Vector3
+                        .MoveTowards(stringNodes[10].position, stringNodes[11].position, pullSpeed/2)
+                        .x,
+                    stringNodes[10].position.y,
+                    stringNodes[10].position.z
+                );
+            }
+            else
+            {
+                stringNodes[10].position = new Vector3(
+                    Vector3
+                        .MoveTowards(stringNodes[10].position, stringNodes[9].position, pullSpeed/2)
+                        .x,
+                    stringNodes[10].position.y,
+                    stringNodes[10].position.z
+                );
+            }
+            centerFlipFlop = !centerFlipFlop;
         }
 
         // node + 1
         if (Vector3.Distance(stringNodes[10].position, stringNodes[11].position) > segmentLength)
         {
-            if (timer <= 0)
+            if (timerRab <= 0)
             {
                 stringNodes[10].position = Vector3.MoveTowards(
                     stringNodes[10].position,
@@ -246,17 +250,17 @@ public class Line : MonoBehaviour
                     pullSpeed
                 );
             }
-            timer--;
+            timerRab--;
         }
         else
         {
-            timer = timerReset;
+            timerRab = timerReset;
         }
 
         // node - 1
         if (Vector3.Distance(stringNodes[10].position, stringNodes[9].position) > segmentLength)
         {
-            if (timer <= 0)
+            if (timerCat <= 0)
             {
                 stringNodes[10].position = Vector3.MoveTowards(
                     stringNodes[10].position,
@@ -264,11 +268,11 @@ public class Line : MonoBehaviour
                     pullSpeed
                 );
             }
-            timer--;
+            timerCat--;
         }
         else
         {
-            timer = timerReset;
+            timerCat = timerReset;
         }
         // CAT
 
