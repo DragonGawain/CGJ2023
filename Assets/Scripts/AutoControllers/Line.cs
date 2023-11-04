@@ -19,6 +19,14 @@ public class Line : MonoBehaviour
     [SerializeField, Range(0f, 20f)]
     float pullSpeed = 0.5f;
 
+    bool isCatMoving = false;
+    bool isRabbitMoving = false;
+
+    const int timerReset = 5;
+    int timer = 0;
+
+    bool centerFlipFlop = false;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -37,108 +45,20 @@ public class Line : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Determine the positions of the nodes on the line
-
-
-        // center to rabbit
-        // for (int i = 8; i < 19; i++)
-        // {
-        //     if (
-        //         Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
-        //         > segmentLength
-        //     )
-        //     {
-        //         stringNodes[i].position = Vector3.MoveTowards(
-        //             stringNodes[i].position,
-        //             stringNodes[i + 1].position,
-        //             pullSpeed
-        //         );
-        //     }
-        // }
-
-        // center to cat
-        // for (int i = 10; i > 0; i--)
-        // {
-        //     if (
-        //         Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
-        //         > segmentLength
-        //     )
-        //     {
-        //         stringNodes[i].position = Vector3.MoveTowards(
-        //             stringNodes[i].position,
-        //             stringNodes[i - 1].position,
-        //             pullSpeed
-        //         );
-        //     }
-        // }
-
-        // Backwards passes
-        // if (Vector3.Distance(stringNodes[45].position, stringNodes[44].position) > segmentLength)
-        // {
-        //     stringNodes[45].position = Vector3.MoveTowards(
-        //         stringNodes[45].position,
-        //         stringNodes[44].position,
-        //         pullSpeed
-        //     );
-        // }
-
-        // if (Vector3.Distance(stringNodes[0].position, stringNodes[1].position) > segmentLength)
-        // {
-        //     stringNodes[0].position = Vector3.MoveTowards(
-        //         stringNodes[0].position,
-        //         stringNodes[1].position,
-        //         pullSpeed
-        //     );
-        // }
-
-        // backwards pass singularity -> cat
-        // if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
-        // {
-        //     stringNodes[0].position = Vector3.MoveTowards(
-        //         stringNodes[0].position,
-        //         Cat.transform.position,
-        //         pullSpeed
-        //     );
-        // }
-
-        // first node singularity -> cat
-        // We do this one second so that the cat has priority on pulling the string, rather than the string have priority on pulling the cat
-        // if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
-        // {
-        //     Cat.transform.position = Vector3.MoveTowards(
-        //         Cat.transform.position,
-        //         stringNodes[0].position,
-        //         pullSpeed
-        //     );
-        // }
-
-        // backwards pass singularity -> rabbit
-        // if (Vector3.Distance(Rabbit.transform.position, stringNodes[19].position) > segmentLength)
-        // {
-        //     stringNodes[19].position = Vector3.MoveTowards(
-        //         stringNodes[19].position,
-        //         Rabbit.transform.position,
-        //         pullSpeed
-        //     );
-        // }
-
-        // last node singularity -> rabbit
-        // if (Vector3.Distance(Rabbit.transform.position, stringNodes[19].position) > segmentLength)
-        // {
-        //     Rabbit.transform.position = Vector3.MoveTowards(
-        //         Rabbit.transform.position,
-        //         stringNodes[19].position,
-        //         pullSpeed
-        //     );
-        // }
+        if (isRabbitMoving && !isCatMoving)
+            rabbitMove();
+        else if (isCatMoving && !isRabbitMoving)
+            catMove();
+        else if (isCatMoving && isRabbitMoving)
+            bothMove();
 
         // draw the line
         lineRenderer.SetPosition(0, Cat.transform.position);
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 21; i++)
         {
             lineRenderer.SetPosition(i + 1, stringNodes[i].position);
         }
-        lineRenderer.SetPosition(21, Rabbit.transform.position);
+        lineRenderer.SetPosition(22, Rabbit.transform.position);
     }
 
     public void catMove()
@@ -154,7 +74,7 @@ public class Line : MonoBehaviour
         }
 
         // rabbit to cat
-        for (int i = 1; i <= 19; i++)
+        for (int i = 1; i <= 20; i++)
         {
             if (
                 Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
@@ -170,20 +90,20 @@ public class Line : MonoBehaviour
         }
 
         // Rabbit singularity -> rabbit to node 19
-        if (Vector3.Distance(Rabbit.transform.position, stringNodes[19].position) > segmentLength)
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
         {
             Rabbit.transform.position = Vector3.MoveTowards(
                 Rabbit.transform.position,
-                stringNodes[19].position,
+                stringNodes[20].position,
                 pullSpeed
             );
         }
 
-        // backwards rabbit pass -> rabbit to node 19
-        if (Vector3.Distance(Rabbit.transform.position, stringNodes[19].position) > segmentLength)
+        // backwards rabbit pass -> rabbit to node 20
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
         {
-            Rabbit.transform.position = Vector3.MoveTowards(
-                stringNodes[19].position,
+            stringNodes[20].position = Vector3.MoveTowards(
+                stringNodes[20].position,
                 Rabbit.transform.position,
                 pullSpeed * 2
             );
@@ -193,17 +113,17 @@ public class Line : MonoBehaviour
     public void rabbitMove()
     {
         // first node singularity (node 19 to rabbit)
-        if (Vector3.Distance(stringNodes[19].position, Rabbit.transform.position) > segmentLength)
+        if (Vector3.Distance(stringNodes[20].position, Rabbit.transform.position) > segmentLength)
         {
-            stringNodes[19].position = Vector3.MoveTowards(
-                stringNodes[19].position,
+            stringNodes[20].position = Vector3.MoveTowards(
+                stringNodes[20].position,
                 Rabbit.transform.position,
                 pullSpeed
             );
         }
 
         // rabbit to cat
-        for (int i = 18; i >= 0; i--)
+        for (int i = 19; i >= 0; i--)
         {
             if (
                 Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
@@ -237,5 +157,227 @@ public class Line : MonoBehaviour
                 pullSpeed * 2
             );
         }
+    }
+
+    public void bothMove()
+    {
+        // Super singularity, special case node 10 (center node)
+        // Both neighbor nodes
+        if (
+            Vector3.Distance(stringNodes[10].position, stringNodes[11].position) > segmentLength
+            && Vector3.Distance(stringNodes[10].position, stringNodes[9].position) > segmentLength
+        )
+        {
+            timer = timerReset;
+
+            if (centerFlipFlop)
+            {
+                stringNodes[10].position = new Vector3(
+                    Vector3
+                        .MoveTowards(stringNodes[10].position, stringNodes[11].position, pullSpeed)
+                        .x,
+                    stringNodes[10].position.y,
+                    stringNodes[10].position.z
+                );
+            }
+            else
+            {
+                stringNodes[10].position = new Vector3(
+                    Vector3
+                        .MoveTowards(stringNodes[10].position, stringNodes[9].position, pullSpeed)
+                        .x,
+                    stringNodes[10].position.y,
+                    stringNodes[10].position.z
+                );
+            }
+            centerFlipFlop = !centerFlipFlop;
+
+            for (int i = 11; i <= 20; i++)
+            {
+                if (
+                    Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
+                    > segmentLength
+                )
+                {
+                    stringNodes[i].position = Vector3.MoveTowards(
+                        stringNodes[i].position,
+                        stringNodes[i - 1].position,
+                        pullSpeed
+                    );
+                }
+            }
+
+            for (int i = 9; i >= 0; i--)
+            {
+                if (
+                    Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
+                    > segmentLength
+                )
+                {
+                    stringNodes[i].position = Vector3.MoveTowards(
+                        stringNodes[i].position,
+                        stringNodes[i + 1].position,
+                        pullSpeed
+                    );
+                }
+            }
+
+            // stringNodes[11].position = Vector3.MoveTowards(
+            //     stringNodes[11].position,
+            //     stringNodes[10].position,
+            //     pullSpeed
+            // );
+
+            // stringNodes[9].position = Vector3.MoveTowards(
+            //     stringNodes[9].position,
+            //     stringNodes[10].position,
+            //     pullSpeed
+            // );
+        }
+
+        // node + 1
+        if (Vector3.Distance(stringNodes[10].position, stringNodes[11].position) > segmentLength)
+        {
+            if (timer <= 0)
+            {
+                stringNodes[10].position = Vector3.MoveTowards(
+                    stringNodes[10].position,
+                    stringNodes[11].position,
+                    pullSpeed
+                );
+            }
+            timer--;
+        }
+        else
+        {
+            timer = timerReset;
+        }
+
+        // node - 1
+        if (Vector3.Distance(stringNodes[10].position, stringNodes[9].position) > segmentLength)
+        {
+            if (timer <= 0)
+            {
+                stringNodes[10].position = Vector3.MoveTowards(
+                    stringNodes[10].position,
+                    stringNodes[9].position,
+                    pullSpeed
+                );
+            }
+            timer--;
+        }
+        else
+        {
+            timer = timerReset;
+        }
+        // CAT
+
+        // first node singularity (node 0 to cat)
+        if (Vector3.Distance(stringNodes[0].position, Cat.transform.position) > segmentLength)
+        {
+            stringNodes[0].position = Vector3.MoveTowards(
+                stringNodes[0].position,
+                Cat.transform.position,
+                pullSpeed
+            );
+        }
+
+        // rabbit to cat
+        for (int i = 1; i <= 9; i++)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i - 1].position,
+                    pullSpeed
+                );
+            }
+        }
+
+        // RABBIT
+
+        // first node singularity (node 20 to rabbit)
+        if (Vector3.Distance(stringNodes[20].position, Rabbit.transform.position) > segmentLength)
+        {
+            stringNodes[20].position = Vector3.MoveTowards(
+                stringNodes[20].position,
+                Rabbit.transform.position,
+                pullSpeed
+            );
+        }
+
+        // rabbit to cat
+        for (int i = 19; i >= 11; i--)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i + 1].position,
+                    pullSpeed
+                );
+            }
+        }
+
+        // character singularities
+
+        // Cat singularity -> cat to node 0
+        if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
+        {
+            Cat.transform.position = Vector3.MoveTowards(
+                Cat.transform.position,
+                stringNodes[0].position,
+                pullSpeed
+            );
+        }
+
+        // Rabbit singularity -> rabbit to node 20
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
+        {
+            Rabbit.transform.position = Vector3.MoveTowards(
+                Rabbit.transform.position,
+                stringNodes[20].position,
+                pullSpeed
+            );
+        }
+
+        // Backwards passes to ensure string doesn't break
+
+        // Backwards cat pass -> node 0 to cat
+        if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
+        {
+            stringNodes[0].position = Vector3.MoveTowards(
+                stringNodes[0].position,
+                Cat.transform.position,
+                pullSpeed * 2
+            );
+        }
+
+        // backwards rabbit pass -> rabbit to node 20
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
+        {
+            stringNodes[20].position = Vector3.MoveTowards(
+                stringNodes[20].position,
+                Rabbit.transform.position,
+                pullSpeed * 2
+            );
+        }
+    }
+
+    public void setRabbitMoving(bool val)
+    {
+        isRabbitMoving = val;
+    }
+
+    public void setCatMoving(bool val)
+    {
+        isCatMoving = val;
     }
 }

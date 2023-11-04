@@ -10,7 +10,7 @@ public class LineNode : MonoBehaviour
         {
             transform.position = new Vector3(
                 transform.position.x,
-                transform.position.y + 0.25f,
+                transform.position.y + 0.35f,
                 transform.position.z
             );
         }
@@ -22,7 +22,7 @@ public class LineNode : MonoBehaviour
         {
             transform.position = new Vector3(
                 transform.position.x,
-                transform.position.y + 0.25f,
+                transform.position.y + 0.35f,
                 transform.position.z
             );
         }

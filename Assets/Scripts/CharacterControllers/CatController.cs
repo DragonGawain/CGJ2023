@@ -63,6 +63,8 @@ public class CatController : MonoBehaviour
         body.velocity = velocity;
 
         if (body.velocity.x != 0 || body.velocity.y != 0)
-            line.catMove();
+            line.setCatMoving(true);
+        else
+            line.setCatMoving(false);
     }
 }
