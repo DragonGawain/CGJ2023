@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tristan's Testing Scene.unity
-    guid: 9badb57e0d453a545aea8f4e700c8394
+    path: Assets/Scenes/MainMenu.unity
+    guid: 40aa09100daf7c8478f7c1bc0ddcb493
+  - enabled: 1
+    path: Assets/Scenes/SampleSceneCopy.unity
+    guid: 981c681a0e4dc2645ab3a55267b6b1f7
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Tristan's Testing Scene.unity
+    guid: 9badb57e0d453a545aea8f4e700c8394
   m_configObjects: {}

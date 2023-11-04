@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 8493691997048490775}
   - component: {fileID: 9134157998844170435}
   - component: {fileID: 1409597161957616563}
-  - component: {fileID: 2360055633016317339}
+  - component: {fileID: 4792901051424442319}
   m_Layer: 5
   m_Name: PauseImage
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2360055633016317339
+--- !u!114 &4792901051424442319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,13 +127,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 2
+  - eventID: 4
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 9167482830958728784}
           m_TargetAssemblyTypeName: InGameUIManager, Assembly-CSharp
-          m_MethodName: OnPausePressed
+          m_MethodName: OnPauseClicked
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -942,6 +942,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4103785189145189194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019760987364667676}
+  m_Layer: 0
+  m_Name: SFXContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019760987364667676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103785189145189194}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 640, y: 360, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4789710232910615453}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4789710231166178179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1894,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8001216559000117409
@@ -1949,7 +1980,7 @@ MonoBehaviour:
   SubmitNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
   BaseNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
   levelClearEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
-  NavigationEffectContainer: {fileID: 0}
+  NavigationEffectContainer: {fileID: 4103785189145189194}
 --- !u!1 &4789710232910615426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,6 +2012,7 @@ Transform:
   - {fileID: 4789710232730088086}
   - {fileID: 4789710231404006953}
   - {fileID: 4789710231784062129}
+  - {fileID: 1019760987364667676}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2323,7 +2355,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tristan's Testing Scene
+          m_StringArgument: SampleSceneCopy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8000573530203663801
@@ -2739,7 +2771,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8285330676355616287
