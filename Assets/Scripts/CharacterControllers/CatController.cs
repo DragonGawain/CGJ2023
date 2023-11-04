@@ -9,7 +9,7 @@ public class CatController : MonoBehaviour
         desiredVelocity,
         velocity;
     bool isGrounded,
-        catOnRabbit;
+        isJumping;
     Ground ground;
     Rigidbody2D body;
     BoxCollider2D collisionBox;
@@ -19,12 +19,21 @@ public class CatController : MonoBehaviour
 
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 12f;
+
+    [SerializeField, Range(0f, 200f)]
+    float jumpForce = 100f;
     float maxSpeedChange;
-    double dashDirection;
+    float dashDirection;
+    int hasJumps = 1;
 
     [SerializeField]
     GameObject lineObject;
     Line line;
+    const int jumpTimerReset = 25;
+    int jumpTimer = 0;
+
+    const int coyoteTimerReset = 10;
+    int coyoteTimer = 0;
 
     private void Awake()
     {
@@ -36,6 +45,8 @@ public class CatController : MonoBehaviour
         collisionBox = GetComponent<BoxCollider2D>();
 
         line = lineObject.GetComponent<Line>();
+
+        Time.timeScale = 1.5f;
     }
 
     // Start is called before the first frame update
@@ -45,9 +56,8 @@ public class CatController : MonoBehaviour
     void Update()
     {
         isGrounded = ground.GetIsCatGrounded();
-        catOnRabbit = ground.GetIsCatOnRabbit();
         catMove = inputs.Player.MoveCat.ReadValue<Vector2>();
-        dashDirection = inputs.Player.CatDash.ReadValue<double>();
+        dashDirection = inputs.Player.CatDash.ReadValue<float>();
     }
 
     private void FixedUpdate()
@@ -66,5 +76,42 @@ public class CatController : MonoBehaviour
             line.setCatMoving(true);
         else
             line.setCatMoving(false);
+
+        if (isGrounded && !isJumping)
+        {
+            hasJumps = 1;
+            coyoteTimer = -1;
+        }
+
+        if (
+            (catMove.y > 0 && hasJumps > 0 && jumpTimer <= 0)
+            || (coyoteTimer > 0 && catMove.y > 0 && hasJumps > 0 && jumpTimer <= 0)
+        )
+        {
+            jump();
+            isJumping = true;
+            jumpTimer = jumpTimerReset;
+        }
+
+        if (jumpTimer > 0)
+            jumpTimer--;
+
+        if (isGrounded && isJumping && jumpTimer <= 0)
+            isJumping = false;
+
+        if (!isGrounded && !isJumping && coyoteTimer == -1)
+            coyoteTimer = coyoteTimerReset;
+
+        if (coyoteTimer > 0)
+            coyoteTimer--;
+
+        if (coyoteTimer == 0 && !isJumping)
+            hasJumps--;
+    }
+
+    private void jump()
+    {
+        body.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        hasJumps--;
     }
 }
