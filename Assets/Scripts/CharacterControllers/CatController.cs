@@ -15,8 +15,8 @@ public class CatController : MonoBehaviour
 
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 12f;
-
     float maxSpeedChange;
+    double dashDirection;
     
     
     private void Awake()
@@ -38,7 +38,8 @@ public class CatController : MonoBehaviour
     void Update()
     {
         isGrounded = ground.GetIsGrounded();
-        catMove = inputs.Player.MoveCat.ReadValue<Vector2>(); // input reading
+        catMove = inputs.Player.MoveCat.ReadValue<Vector2>(); 
+        dashDirection = inputs.Player.CatDash.ReadValue<double>(); 
     }
 
     private void FixedUpdate()
