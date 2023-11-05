@@ -6493,6 +6493,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1217495385946503029, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79
+      objectReference: {fileID: 0}
     - target: {fileID: 3643779315945486153, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
       propertyPath: m_Name
       value: PlayersAndStringSAFECOPY
@@ -6507,7 +6511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5234751492798474733, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5234751492798474733, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6541,6 +6545,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5665241907757224017, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79
+      objectReference: {fileID: 0}
     - target: {fileID: 5665241907757224020, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
       propertyPath: effectContainer
       value: 
@@ -6549,6 +6557,10 @@ PrefabInstance:
       propertyPath: effectContainer
       value: 
       objectReference: {fileID: 1228428688}
+    - target: {fileID: 6904720031204879518, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17666e096d99456c8ac8fd2bfd90ac2, type: 3}
 --- !u!1 &1613143429 stripped
