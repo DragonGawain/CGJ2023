@@ -10,7 +10,23 @@ public class Gate : MonoBehaviour
     bool rabbitWin = false,
         catWin = false;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.layer == 13)
+    //         catWin = true;
+    //     if (other.gameObject.layer == 14)
+    //         rabbitWin = true;
+    // }
+
+    // private void OnCollisionExit(Collision other)
+    // {
+    //     if (other.gameObject.layer == 13)
+    //         catWin = false;
+    //     if (other.gameObject.layer == 14)
+    //         rabbitWin = false;
+    // }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == 13)
             catWin = true;
@@ -18,7 +34,7 @@ public class Gate : MonoBehaviour
             rabbitWin = true;
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.layer == 13)
             catWin = false;
