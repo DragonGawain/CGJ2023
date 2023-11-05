@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
 {
     public GameObject mainMenuPage;
     public GameObject levelSelectPage;
+    public GameObject controlsPage;
     public GameObject creditsPage;
     public GameObject playButton;
     public GameObject levelSelectedButton;
+    public GameObject controlsSelectedButton;
     public GameObject creditsBackButton;
     public EventSystem eventSystem;
     public GameObject SubmitNavigationEffect;
@@ -31,6 +33,28 @@ public class UIManager : MonoBehaviour
         levelSelectPage.SetActive(true);
 
         eventSystem.SetSelectedGameObject(levelSelectedButton);
+    }
+
+    public void OnControlsButtonClick()
+    {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
+        mainMenuPage.SetActive(false);
+
+        controlsPage.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(controlsSelectedButton);
+    }
+
+    public void OnControlsBackButtonClick()
+    {
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
+        controlsPage.SetActive(false);
+
+        mainMenuPage.SetActive(true);
+
+        eventSystem.SetSelectedGameObject(playButton);
     }
 
     public void OnCreitsButtonClick()
