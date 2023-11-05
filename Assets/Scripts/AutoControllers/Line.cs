@@ -57,7 +57,6 @@ public class Line : MonoBehaviour
     {
         if (isRabbitMoving && !isCatMoving)
         {
-            Debug.Log("Rab no Cat");
             if (!swapped)
                 rabbitMove();
             else
@@ -65,7 +64,6 @@ public class Line : MonoBehaviour
         }
         else if (isCatMoving && !isRabbitMoving)
         {
-            Debug.Log("Cat no Rab");
             if (!swapped)
                 catMove();
             else
@@ -75,7 +73,6 @@ public class Line : MonoBehaviour
         {
             if (isRabbitMoving && !isCatInput && isRabbitInput)
             {
-            Debug.Log("Rab no CatMove");
                 if (!swapped)
                     rabbitMove();
                 else
@@ -83,17 +80,13 @@ public class Line : MonoBehaviour
             }
             else if (isCatMoving && !isRabbitInput && isCatInput)
             {
-                Debug.Log("Cat no RabMove");
                 if (!swapped)
                     catMove();
                 else
                     rabbitMove();
             }
             else
-            {
-                Debug.Log("Both");
                 bothMove();
-            }
         }
 
         // draw the line
