@@ -13,7 +13,8 @@ public class Spike : MonoBehaviour
             done = true;
             StartCoroutine(kill());
             collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
-            //collision.gameObject.GetComponent<Animator>().Play("DeathAnim");
+            var animator = collision.gameObject.GetComponent<Animator>();
+            animator.SetBool("isDead", true);
             //SoundManager.Play("TacoBellReverb.wav");
         }
     }
