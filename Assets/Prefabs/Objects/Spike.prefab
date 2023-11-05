@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3850b44b089b37b408807a0cf44ff81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieEffect: {fileID: 396480759754044249, guid: ab1b849cbb2550e47a71f9d6d5985874, type: 3}
+  effectContainer: {fileID: 0}
 --- !u!50 &806279153795142157
 Rigidbody2D:
   serializedVersion: 4

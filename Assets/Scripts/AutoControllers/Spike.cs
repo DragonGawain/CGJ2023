@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject dieEffect;
+    [SerializeField]
+    private Transform effectContainer;
+
     bool done;
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,6 +20,8 @@ public class Spike : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
             var animator = collision.gameObject.GetComponent<Animator>();
             animator.SetBool("isDead", true);
+
+            Instantiate(dieEffect, effectContainer);
             //SoundManager.Play("TacoBellReverb.wav");
         }
     }

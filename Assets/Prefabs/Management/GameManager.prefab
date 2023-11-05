@@ -48,4 +48,9 @@ MonoBehaviour:
   maxSeconds: 960
   timerDrainBar: {fileID: 0}
   inGameUIManager: {fileID: 0}
+  swapEffect: {fileID: 1354103141877640805, guid: 5597298851087e7449db055f4402ed77, type: 3}
+  effectContainer: {fileID: 0}
   currentTier: 1
+  Cat: {fileID: 0}
+  Rabbit: {fileID: 0}
+  lineObject: {fileID: 0}

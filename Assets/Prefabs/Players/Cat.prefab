@@ -149,6 +149,7 @@ MonoBehaviour:
   jumpForce: 15
   dashForce: 50
   lineObject: {fileID: 0}
+  jumpEffect: {fileID: 1143381856212359060, guid: 528e733a129407f4ea64017fb5b74dcb, type: 3}
 --- !u!50 &5247338697669006729
 Rigidbody2D:
   serializedVersion: 4

@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public Slider timerDrainBar;
     public InGameUIManager inGameUIManager;
     private PlayerInputs inputs;
+    [SerializeField]
+    private GameObject swapEffect;
+    [SerializeField]
+    private Transform effectContainer;
 
     public enum medalTiers
     {
@@ -86,5 +90,7 @@ public class GameManager : MonoBehaviour
         Cat.transform.position = Rabbit.transform.position;
         Rabbit.transform.position = temp;
         line.swapPlaces();
+
+        Instantiate(swapEffect, effectContainer);
     }
 }

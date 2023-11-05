@@ -148,6 +148,7 @@ MonoBehaviour:
   maxSpeed: 12
   jumpForce: 80
   lineObject: {fileID: 0}
+  jumpEffect: {fileID: 1143381856212359060, guid: 528e733a129407f4ea64017fb5b74dcb, type: 3}
 --- !u!50 &8854001254287209043
 Rigidbody2D:
   serializedVersion: 4

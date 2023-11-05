@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameUI: {fileID: 5353272884929530143}
   pauseScreenPage: {fileID: 4789710231166178179}
-  pauseDefaultSelected: {fileID: 0}
+  pauseDefaultSelected: {fileID: 5987313947398599127}
   eventSystem: {fileID: 4789710231784062131}
   clearScreenPage: {fileID: 6804948525903889953}
   clearDefaultSelected: {fileID: 5938183128925504296}
@@ -1172,6 +1172,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9b4d2de1d33744243854742be2765eb0, type: 3}
   - {fileID: 21300000, guid: c04bab1d98cc80747af6fad0c3b13622, type: 3}
   SubmitNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
+  cancelBackNavigationEffect: {fileID: 5426065089367480150, guid: 87b079efdcecfeb48821dd80c36dcf14, type: 3}
   BaseNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
   levelClearEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
   NavigationEffectContainer: {fileID: 4103785189145189194}
