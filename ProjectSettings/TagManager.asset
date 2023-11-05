@@ -23,7 +23,7 @@ TagManager:
   - InteractableWithLine
   - Cat
   - Rabbit
-  - 
+  - InteractableWithLineBottom
   - 
   - 
   - 

@@ -71,14 +71,14 @@ public class Line : MonoBehaviour
         }
         else if (isCatMoving && isRabbitMoving)
         {
-            if (isRabbitMoving && !isCatInput)
+            if (isRabbitMoving && !isCatInput && isRabbitInput)
             {
                 if (!swapped)
                     rabbitMove();
                 else
                     catMove();
             }
-            else if (isCatMoving && !isRabbitInput)
+            else if (isCatMoving && !isRabbitInput && isCatInput)
             {
                 if (!swapped)
                     catMove();
