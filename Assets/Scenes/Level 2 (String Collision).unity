@@ -18032,9 +18032,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.81
       objectReference: {fileID: 0}
+    - target: {fileID: 6752955733200024039, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
+      propertyPath: m_TagString
+      value: Rabbit
+      objectReference: {fileID: 0}
     - target: {fileID: 6904720031204879515, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
       propertyPath: jumpForce
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904720031204879517, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
+      propertyPath: m_TagString
+      value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 6904720031204879518, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
       propertyPath: m_LocalPosition.x
