@@ -66,6 +66,11 @@ public class CatController : MonoBehaviour
         isGrounded = ground.GetIsCatGrounded();
         catMove = inputs.Player.MoveCat.ReadValue<Vector2>();
         dashDirection = inputs.Player.CatDash.ReadValue<float>();
+
+        body.velocity = new Vector2(
+            Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+            Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
+        );
     }
 
     private void FixedUpdate()

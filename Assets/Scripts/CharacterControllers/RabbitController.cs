@@ -52,6 +52,11 @@ public class RabbitController : MonoBehaviour
     {
         isGrounded = ground.GetIsRabbitGrounded();
         rabbitMove = inputs.Player.MoveRabbit.ReadValue<Vector2>();
+
+        body.velocity = new Vector2(
+            Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+            Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
+        );
     }
 
     private void FixedUpdate()
@@ -70,11 +75,6 @@ public class RabbitController : MonoBehaviour
             line.setRabbitMoving(true);
         else
             line.setRabbitMoving(false);
-
-        if (body.velocity.x != 0 || body.velocity.y != 0)
-            line.setCatMoving(true);
-        else
-            line.setCatMoving(false);
 
         if (isGrounded && !isJumping)
         {
