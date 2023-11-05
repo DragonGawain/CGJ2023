@@ -42,6 +42,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5234751492798474733}
     m_Modifications:
+    - target: {fileID: 1862529691984217996, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529691987413805, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529691988860500, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692222372720, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692320163082, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692476744521, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692477401808, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692561871317, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692574349513, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692578103619, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692625826159, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692681878793, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529692985778332, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693227541375, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693426683212, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693427422912, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693484522801, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693573931483, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693648885786, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693794192788, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862529693796634544, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1862529693843907969, guid: cd267de7ed6a24023a0b37d79fec3fbc, type: 3}
       propertyPath: m_RootOrder
       value: 0
