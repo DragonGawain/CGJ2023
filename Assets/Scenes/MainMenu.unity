@@ -245,10 +245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2606791575521860827, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level3
-      objectReference: {fileID: 0}
     - target: {fileID: 4413819023766668751, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -301,13 +297,5 @@ PrefabInstance:
       propertyPath: NavigationEffectContainer
       value: 
       objectReference: {fileID: 380453596}
-    - target: {fileID: 4413819024722122469, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TutorialLevelBackup
-      objectReference: {fileID: 0}
-    - target: {fileID: 8549086305174845827, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level 2 (String Collision)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
