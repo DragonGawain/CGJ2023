@@ -33,6 +33,8 @@ public class InGameUIManager : MonoBehaviour
 
         pauseScreenPage.SetActive(true);
 
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+
         eventSystem.SetSelectedGameObject(pauseDefaultSelected);
 
         Time.timeScale = 0.0f;
@@ -43,6 +45,8 @@ public class InGameUIManager : MonoBehaviour
         inGameUI.SetActive(false);
 
         pauseScreenPage.SetActive(true);
+
+        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         eventSystem.SetSelectedGameObject(pauseDefaultSelected);
 
