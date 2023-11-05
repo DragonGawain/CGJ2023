@@ -18,13 +18,14 @@ public class InGameUIManager : MonoBehaviour
     public Image tierDisplayImage;
     public List<Sprite> tierSprites;
     public GameObject SubmitNavigationEffect;
+    public GameObject cancelBackNavigationEffect;
     public GameObject BaseNavigationEffect;
     public GameObject levelClearEffect;
     public GameObject NavigationEffectContainer;
 
     public void OnButtonSelect()
     {
-        Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        //Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
     }
 
     public void OnPausePressed(InputAction.CallbackContext callbackContext)
@@ -100,7 +101,7 @@ public class InGameUIManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
 
-        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        Instantiate(cancelBackNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         SceneManager.LoadScene(mainMenuSceneName);
     }

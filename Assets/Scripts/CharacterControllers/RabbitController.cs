@@ -39,6 +39,11 @@ public class RabbitController : MonoBehaviour
     const int fallingJumpTimerReset = 500;
     int fallingJumpTimer = 0;
 
+    [SerializeField]
+    private GameObject jumpEffect;
+    [SerializeField]
+    private Transform effectContainer;
+
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -179,6 +184,8 @@ public class RabbitController : MonoBehaviour
         {
             animatorController.SetBool("isDoubleJumping", true);
         }
+
+        Instantiate(jumpEffect, effectContainer);
     }
 
     public bool getIsGrounded()

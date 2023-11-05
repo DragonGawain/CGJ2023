@@ -48,6 +48,11 @@ public class CatController : MonoBehaviour
     const int fallingJumpTimerReset = 500;
     int fallingJumpTimer = 0;
 
+    [SerializeField]
+    private GameObject jumpEffect;
+    [SerializeField]
+    private Transform effectContainer;
+
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -155,6 +160,8 @@ public class CatController : MonoBehaviour
             jumpTimer = jumpTimerReset;
 
             animatorController.SetBool("isJumping", true);
+
+            Instantiate(jumpEffect, effectContainer);
         }
 
         if (jumpTimer > 0)

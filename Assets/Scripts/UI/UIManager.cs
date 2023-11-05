@@ -16,12 +16,13 @@ public class UIManager : MonoBehaviour
     public GameObject creditsBackButton;
     public EventSystem eventSystem;
     public GameObject SubmitNavigationEffect;
+    public GameObject cancelBackNavigationEffect;
     public GameObject BaseNavigationEffect;
     public GameObject NavigationEffectContainer;
 
     public void OnButtonSelect()
     {
-        Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        //Instantiate(BaseNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
     }
     
     public void OnPlayButtonClick()
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     public void OnControlsBackButtonClick()
     {
-        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        Instantiate(cancelBackNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         controlsPage.SetActive(false);
 
@@ -70,7 +71,7 @@ public class UIManager : MonoBehaviour
 
     public void OnCreditsBackButtonClick()
     {
-        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        Instantiate(cancelBackNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         creditsPage.SetActive(false);
 
@@ -81,7 +82,7 @@ public class UIManager : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
-        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        Instantiate(cancelBackNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -101,7 +102,7 @@ public class UIManager : MonoBehaviour
 
     public void OnLevelSelectBackButtonClick()
     {
-        Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
+        Instantiate(cancelBackNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         levelSelectPage.SetActive(false);
 

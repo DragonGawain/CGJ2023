@@ -1864,7 +1864,8 @@ MonoBehaviour:
   creditsBackButton: {fileID: 3746360710493537785}
   eventSystem: {fileID: 4413819023008164577}
   SubmitNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
-  BaseNavigationEffect: {fileID: 6323498812634036098, guid: b5109b2938d9fa94d837e6f4cdd8b414, type: 3}
+  cancelBackNavigationEffect: {fileID: 5426065089367480150, guid: 87b079efdcecfeb48821dd80c36dcf14, type: 3}
+  BaseNavigationEffect: {fileID: 0}
   NavigationEffectContainer: {fileID: 0}
 --- !u!1 &4413819023991073715
 GameObject:
