@@ -51,6 +51,8 @@ public class CatController : MonoBehaviour
     [SerializeField]
     private GameObject jumpEffect;
     [SerializeField]
+    private GameObject dashEffect;
+    [SerializeField]
     private Transform effectContainer;
 
     private void Awake()
@@ -237,6 +239,8 @@ public class CatController : MonoBehaviour
 
             sprite.flipX = true;
         }
+
+        Instantiate(dashEffect, effectContainer);
     }
 
     public bool getIsGrounded()
