@@ -307,6 +307,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.11764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396486, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3629549732896396504, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
       propertyPath: m_Name
       value: THE_STRING_BETWEEN
