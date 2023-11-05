@@ -30,6 +30,9 @@ public class RabbitController : MonoBehaviour
     const int jumpTimerReset = 25;
     int jumpTimer = 0;
 
+    private Animator animatorController;
+    private SpriteRenderer sprite;
+
     const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
 
@@ -45,6 +48,10 @@ public class RabbitController : MonoBehaviour
         ground = GetComponent<Ground>();
 
         line = lineObject.GetComponent<Line>();
+
+        animatorController = this.gameObject.GetComponent<Animator>();
+
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -90,6 +97,24 @@ public class RabbitController : MonoBehaviour
         else
             line.setRabbitInput(false);
 
+        if (body.velocity.x != 0)
+        {
+            animatorController.SetBool("isWalking", true);
+        }
+        else
+        {
+            animatorController.SetBool("isWalking", false);
+        }
+
+        if (rabbitMove.x < 0)
+        {
+            sprite.flipX = true;
+        }
+        else if (rabbitMove.x > 0)
+        {
+            sprite.flipX = false;
+        }
+
         if (isGrounded && !isJumping)
         {
             hasJumps = 2;
@@ -110,7 +135,12 @@ public class RabbitController : MonoBehaviour
             jumpTimer--;
 
         if (isGrounded && isJumping && jumpTimer <= 0)
+        {
             isJumping = false;
+
+            animatorController.SetBool("isJumping", false);
+            animatorController.SetBool("isDoubleJumping", false);
+        }
 
         if (!isGrounded && !isJumping && coyoteTimer == -1)
             coyoteTimer = coyoteTimerReset;
@@ -140,6 +170,15 @@ public class RabbitController : MonoBehaviour
         body.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         hasJumps--;
         fallingJumpTimer = fallingJumpTimerReset;
+
+        if (hasJumps == 1)
+        {
+            animatorController.SetBool("isJumping", true);
+        }
+        else
+        {
+            animatorController.SetBool("isDoubleJumping", true);
+        }
     }
 
     public bool getIsGrounded()
