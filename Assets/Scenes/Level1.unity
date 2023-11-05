@@ -3314,8 +3314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f2662959456f44e921b116cc43cc87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceX: 0
+  distanceX: -38.8
   distanceY: 0
+  speed: 0.72
 --- !u!1001 &1786560952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3370,6 +3371,10 @@ PrefabInstance:
     - target: {fileID: 2914105369948051144, guid: 50506b78ca877eb4e849959d122ee56c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914105369948051147, guid: 50506b78ca877eb4e849959d122ee56c, type: 3}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3656244783135346798, guid: 50506b78ca877eb4e849959d122ee56c, type: 3}
       propertyPath: m_SortingOrder

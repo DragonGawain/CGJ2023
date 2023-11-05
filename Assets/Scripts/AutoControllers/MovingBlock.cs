@@ -8,21 +8,32 @@ public class MovingBlock : MonoBehaviour
     float distanceX;
     [SerializeField, Range(-50f, 50f)]
     float distanceY;
-    Vector3 initialPosition;
+    [SerializeField, Range(0, 5f)]
+    float speed;
+    Vector3 initialPosition = new Vector3();
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
-        StartCoroutine(move());
     }
-    IEnumerator move()
+    void Update()
     {
-        for (int i = 0; i < (int)(Mathf.Max(Mathf.Abs(distanceY), Mathf.Abs(distanceX)) * 10); i++)
+        // Move the object
+        //transform.Translate(new Vector3(speed * Time.deltaTime * x, speed * Time.deltaTime * y, 0));
+        float moveX = distanceX * Time.deltaTime * speed;
+        float moveY = distanceY * Time.deltaTime * speed;
+
+        // Update the object's position
+        transform.position = new Vector3(transform.position.x + moveX, transform.position.y + moveY, 0);
+        float fuckThisX = initialPosition.x - transform.position.x;
+        float fuckThisY = initialPosition.y - transform.position.y;
+        
+        // Check if reset condition is met
+        if (Mathf.Abs(fuckThisX) > Mathf.Abs(distanceX) || Mathf.Abs(fuckThisY) > Mathf.Abs(distanceY))
         {
-            transform.position = new Vector3(transform.position.x + distanceX / 200f, transform.position.y + distanceY / 200f, transform.position.z);
-            yield return new WaitForSecondsRealtime(.01f);
+            // Reset the position to the initial position
+            transform.position = initialPosition;
         }
-        transform.position = initialPosition;
-        StartCoroutine(move());
+        
     }
 }
