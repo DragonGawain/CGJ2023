@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 380453596}
     - target: {fileID: 4413819024722122469, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TutorialLevel
+      value: TutorialLevelBackup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
