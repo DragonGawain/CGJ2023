@@ -59,7 +59,7 @@ public class RabbitController : MonoBehaviour
         if (isJumping && !isGrounded && fallingJumpTimer > 0)
             body.velocity = new Vector2(
                 Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
-                Mathf.Clamp(body.velocity.y, -33.33f, 33.33f)
+                Mathf.Clamp(body.velocity.y, -33.33f, 11.33f)
             );
         else
             body.velocity = new Vector2(
