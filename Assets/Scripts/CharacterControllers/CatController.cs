@@ -228,10 +228,14 @@ public class CatController : MonoBehaviour
         if (dashDirection > 0)
         {
             body.AddForce(transform.right * dashForce, ForceMode2D.Impulse);
+
+            sprite.flipX = false;
         }
         else if (dashDirection < 0)
         {
             body.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
+
+            sprite.flipX = true;
         }
     }
 
