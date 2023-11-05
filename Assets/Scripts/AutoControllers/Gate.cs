@@ -5,26 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
-    int sceneIndex = 0;
-
     bool rabbitWin = false,
         catWin = false;
-
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.layer == 13)
-    //         catWin = true;
-    //     if (other.gameObject.layer == 14)
-    //         rabbitWin = true;
-    // }
-
-    // private void OnCollisionExit(Collision other)
-    // {
-    //     if (other.gameObject.layer == 13)
-    //         catWin = false;
-    //     if (other.gameObject.layer == 14)
-    //         rabbitWin = false;
-    // }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -46,8 +28,7 @@ public class Gate : MonoBehaviour
     {
         if (rabbitWin && catWin)
         {
-            sceneIndex++;
-            SceneManager.LoadScene(sceneIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

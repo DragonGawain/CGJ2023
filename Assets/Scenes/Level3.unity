@@ -1650,7 +1650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344662385830812471, guid: 110090067bad635498cfc23f59d37ca0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 95.2
+      value: 91.14001
       objectReference: {fileID: 0}
     - target: {fileID: 3344662385830812471, guid: 110090067bad635498cfc23f59d37ca0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1935,6 +1935,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 806279153795142159, guid: eef0dc9e0058cc241a20c132f1e864b6, type: 3}
   m_PrefabInstance: {fileID: 568502461}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &269291761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269291762}
+  m_Layer: 0
+  m_Name: EffectContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269291762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269291761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 73
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &272088244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 806279153795142159, guid: eef0dc9e0058cc241a20c132f1e864b6, type: 3}
@@ -2321,6 +2352,10 @@ PrefabInstance:
       propertyPath: timerDrainBar
       value: 
       objectReference: {fileID: 1620355504}
+    - target: {fileID: 7043717033862140766, guid: dc221b36129158448a91f2d54b949c57, type: 3}
+      propertyPath: effectContainer
+      value: 
+      objectReference: {fileID: 269291762}
     - target: {fileID: 7043717033862140766, guid: dc221b36129158448a91f2d54b949c57, type: 3}
       propertyPath: inGameUIManager
       value: 
@@ -10200,7 +10235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344662385830812471, guid: 110090067bad635498cfc23f59d37ca0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 91.14001
+      value: 95.2
       objectReference: {fileID: 0}
     - target: {fileID: 3344662385830812471, guid: 110090067bad635498cfc23f59d37ca0, type: 3}
       propertyPath: m_LocalPosition.y
