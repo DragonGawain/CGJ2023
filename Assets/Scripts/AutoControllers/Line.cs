@@ -19,21 +19,19 @@ public class Line : MonoBehaviour
     [SerializeField, Range(0f, 20f)]
     float pullSpeed = 0.5f;
 
-    bool isCatMoving = false;
-    bool isRabbitMoving = false;
-
-    bool isCatInput = false;
-    bool isRabbitInput = false;
+    bool isCatMoving,
+        isRabbitMoving,
+        isCatInput,
+        isRabbitInput,
+        centerFlipFlop,
+        swapped;
 
     const int timerReset = 5;
     int timerRab = 0;
     int timerCat = 0;
 
-    bool centerFlipFlop = false;
-
     GameObject Cat,
         Rabbit;
-    bool swapped = false;
 
     private void Awake()
     {
@@ -45,6 +43,13 @@ public class Line : MonoBehaviour
         }
         Cat = cat;
         Rabbit = rabbit;
+
+        isCatMoving = false;
+        isRabbitMoving = false;
+        isCatInput = false;
+        isRabbitInput = false;
+        centerFlipFlop = false;
+        swapped = false;
     }
 
     // Start is called before the first frame update
@@ -557,5 +562,12 @@ public class Line : MonoBehaviour
             Cat = cat;
             Rabbit = rabbit;
         }
+    }
+
+    public void setSwapFalse()
+    {
+        swapped = false;
+        Cat = cat;
+        Rabbit = rabbit;
     }
 }

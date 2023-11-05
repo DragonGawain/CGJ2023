@@ -9,6 +9,7 @@ TagManager:
   - LevelSelect
   - Cat
   - Rabbit
+  - TheLine
   layers:
   - Default
   - TransparentFX

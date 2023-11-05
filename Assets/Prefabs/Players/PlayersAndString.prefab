@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: THE_STRING_BETWEEN
       objectReference: {fileID: 0}
+    - target: {fileID: 3629549732896396504, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
+      propertyPath: m_TagString
+      value: TheLine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9edc89ce106452e8580a2307255441, type: 3}
 --- !u!1 &5123709924101775684 stripped
