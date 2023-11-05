@@ -3441,6 +3441,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3344662385830812471, guid: 912e016f1546c0342837a019a216dfe5, type: 3}
   m_PrefabInstance: {fileID: 967140064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &970838362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752955733200024039, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
+  m_PrefabInstance: {fileID: 1360836747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &985682688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3767,7 +3772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cat: {fileID: 1360836750}
-  Rabbit: {fileID: 1360836749}
+  Rabbit: {fileID: 970838362}
 --- !u!1001 &1065964108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4846,11 +4851,6 @@ PrefabInstance:
 --- !u!1 &1360836748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5123709924101775684, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
-  m_PrefabInstance: {fileID: 1360836747}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1360836749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5580771227838497688, guid: 05c6aebe2290e0d4aaf6d105e8929ec5, type: 3}
   m_PrefabInstance: {fileID: 1360836747}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1360836750 stripped
@@ -7296,7 +7296,7 @@ PrefabInstance:
     - target: {fileID: 7043717033862140766, guid: dc221b36129158448a91f2d54b949c57, type: 3}
       propertyPath: Rabbit
       value: 
-      objectReference: {fileID: 1360836749}
+      objectReference: {fileID: 970838362}
     - target: {fileID: 7043717033862140766, guid: dc221b36129158448a91f2d54b949c57, type: 3}
       propertyPath: lineObject
       value: 
