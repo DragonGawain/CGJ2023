@@ -22,6 +22,9 @@ public class Line : MonoBehaviour
     bool isCatMoving = false;
     bool isRabbitMoving = false;
 
+    bool isCatInput = false;
+    bool isRabbitInput = false;
+
     const int timerReset = 5;
     int timerRab = 0;
     int timerCat = 0;
@@ -54,7 +57,7 @@ public class Line : MonoBehaviour
     {
         if (isRabbitMoving && !isCatMoving)
         {
-            if(!swapped)
+            if (!swapped)
                 rabbitMove();
             else
                 catMove();
@@ -67,7 +70,24 @@ public class Line : MonoBehaviour
                 rabbitMove();
         }
         else if (isCatMoving && isRabbitMoving)
-            bothMove();
+        {
+            if (isRabbitMoving && !isCatInput)
+            {
+                if (!swapped)
+                    rabbitMove();
+                else
+                    catMove();
+            }
+            else if (isCatMoving && !isRabbitInput)
+            {
+                if (!swapped)
+                    catMove();
+                else
+                    rabbitMove();
+            }
+            else
+                bothMove();
+        }
 
         // draw the line
         lineRenderer.SetPosition(0, Cat.transform.position);
@@ -262,10 +282,7 @@ public class Line : MonoBehaviour
 
         // Rabbit to node 21 (iff string is stretching)
         // Rabbit singularity -> rabbit to node 21
-        if (
-            Vector3.Distance(Rabbit.transform.position, stringNodes[20].position)
-            > segmentLength
-        )
+        if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
         {
             Rabbit.transform.position = Vector3.MoveTowards(
                 Rabbit.transform.position,
@@ -515,6 +532,16 @@ public class Line : MonoBehaviour
     public void setCatMoving(bool val)
     {
         isCatMoving = val;
+    }
+
+    public void setRabbitInput(bool val)
+    {
+        isRabbitInput = val;
+    }
+
+    public void setCatInput(bool val)
+    {
+        isCatInput = val;
     }
 
     public void swapPlaces()

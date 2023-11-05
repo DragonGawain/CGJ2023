@@ -80,10 +80,15 @@ public class RabbitController : MonoBehaviour
 
         body.velocity = velocity;
 
-        if (body.velocity.x != 0 || body.velocity.y != 0)
+        if (body.velocity.x != 0 || body.velocity.y != 0) 
             line.setRabbitMoving(true);
         else
             line.setRabbitMoving(false);
+
+        if(rabbitMove.x != 0)
+            line.setRabbitInput(true);
+        else
+            line.setRabbitInput(false);
 
         if (isGrounded && !isJumping)
         {

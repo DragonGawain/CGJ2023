@@ -116,6 +116,11 @@ public class CatController : MonoBehaviour
             line.setCatMoving(false);
         }
 
+        if(catMove.x != 0)
+            line.setCatInput(true);
+        else
+            line.setCatInput(false);
+
         if (body.velocity.x != 0)
         {
             animatorController.SetBool("isWalking", true);
