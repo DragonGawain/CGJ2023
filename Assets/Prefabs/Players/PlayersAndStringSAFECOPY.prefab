@@ -201,6 +201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 5247338697669006732, guid: 3139c88d67e56c5409262b112aeae45f, type: 3}
+      propertyPath: m_TagString
+      value: Cat
+      objectReference: {fileID: 0}
     - target: {fileID: 5247338697669006735, guid: 3139c88d67e56c5409262b112aeae45f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -314,6 +318,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8854001254287209047, guid: 5991ff36bd8e4a541b258a5ba1cbb6b1, type: 3}
       propertyPath: m_Name
+      value: Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854001254287209047, guid: 5991ff36bd8e4a541b258a5ba1cbb6b1, type: 3}
+      propertyPath: m_TagString
       value: Rabbit
       objectReference: {fileID: 0}
     m_RemovedComponents: []

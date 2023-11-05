@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
     public Slider timerDrainBar;
     public InGameUIManager inGameUIManager;
     private PlayerInputs inputs;
+
     [SerializeField]
     private GameObject swapEffect;
+
     [SerializeField]
     private Transform effectContainer;
 
@@ -27,10 +29,11 @@ public class GameManager : MonoBehaviour
     public medalTiers currentTier = medalTiers.Gold;
 
     [SerializeField]
-    GameObject Cat,
-        Rabbit,
-        lineObject;
+    GameObject lineObject;
     Line line;
+
+    GameObject Cat,
+        Rabbit;
 
     private void Awake()
     {
@@ -86,6 +89,8 @@ public class GameManager : MonoBehaviour
 
     private void swap(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
+        Cat = GameObject.FindWithTag("Cat");
+        Rabbit = GameObject.FindWithTag("Rabbit");
         Vector3 temp = Cat.transform.position;
         Cat.transform.position = Rabbit.transform.position;
         Rabbit.transform.position = temp;
