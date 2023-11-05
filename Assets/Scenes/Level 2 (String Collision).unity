@@ -3921,6 +3921,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 501815828}
     m_Modifications:
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.x
+      value: 9.677934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.y
+      value: 1.750003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 9.677934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.7500025
+      objectReference: {fileID: 0}
     - target: {fileID: 5449670202424944392, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 8.854593
@@ -18860,6 +18876,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 501815828}
     m_Modifications:
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.x
+      value: 14.19491
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.y
+      value: 16.23774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 14.194905
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 16.237736
+      objectReference: {fileID: 0}
     - target: {fileID: 5449670202424944392, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 14.62119
@@ -19937,6 +19969,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 501815828}
     m_Modifications:
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.x
+      value: 13.05961
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.y
+      value: 3.750012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 13.059606
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 3.7500117
+      objectReference: {fileID: 0}
     - target: {fileID: 5449670202424944392, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 13.4066925
@@ -22470,7 +22518,7 @@ GameObject:
   - component: {fileID: 1676551400}
   - component: {fileID: 1676551399}
   - component: {fileID: 1676551402}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: (B)WallInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27096,6 +27144,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 501815828}
     m_Modifications:
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.x
+      value: 7.132276
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_Size.y
+      value: 3.186446
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 7.1322756
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090639307167416454, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 3.1864462
+      objectReference: {fileID: 0}
     - target: {fileID: 5449670202424944392, guid: 1e9ae8f3d40688e45aae033c8f18a055, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 7.2981873
@@ -27512,6 +27576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073056868}
   - component: {fileID: 2073056869}
+  - component: {fileID: 2073056870}
   m_Layer: 15
   m_Name: Square
   m_TagString: Untagged
@@ -27586,6 +27651,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2073056870
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073056867}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1.75, y: 4.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.75, y: 4.25}
+  m_EdgeRadius: 0
 --- !u!1001 &2073296015
 PrefabInstance:
   m_ObjectHideFlags: 0
