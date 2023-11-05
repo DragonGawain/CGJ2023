@@ -2905,6 +2905,11 @@ Transform:
   - {fileID: 1610624727}
   - {fileID: 1377613128}
   - {fileID: 1670634039}
+  - {fileID: 893009843}
+  - {fileID: 1984456318}
+  - {fileID: 544951140}
+  - {fileID: 479971032}
+  - {fileID: 1761578602}
   - {fileID: 1377584550}
   - {fileID: 1710233438}
   - {fileID: 1666472432}
@@ -2912,14 +2917,9 @@ Transform:
   - {fileID: 460163483}
   - {fileID: 1065964109}
   - {fileID: 2136179330}
-  - {fileID: 1984456318}
-  - {fileID: 1988528577}
   - {fileID: 215804780}
-  - {fileID: 1761578602}
-  - {fileID: 479971032}
-  - {fileID: 544951140}
-  - {fileID: 893009843}
   - {fileID: 189791207}
+  - {fileID: 1988528577}
   - {fileID: 561231359}
   m_Father: {fileID: 1826170228}
   m_RootOrder: 1
@@ -6493,7 +6493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1897294043
 SpriteRenderer:
   m_ObjectHideFlags: 0
