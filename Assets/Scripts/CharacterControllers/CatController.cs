@@ -36,6 +36,7 @@ public class CatController : MonoBehaviour
     int jumpTimer = 0;
 
     private Animator animatorController;
+    private SpriteRenderer sprite;
 
     const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
@@ -55,6 +56,8 @@ public class CatController : MonoBehaviour
         line = lineObject.GetComponent<Line>();
 
         animatorController = this.gameObject.GetComponent<Animator>();
+
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -93,16 +96,25 @@ public class CatController : MonoBehaviour
         {
             line.setCatMoving(false);
         }
-
+        
         if (body.velocity.x != 0)
         {
             animatorController.SetBool("isWalking", true);
+
         }
         else
         {
             animatorController.SetBool("isWalking", false);
         }
 
+        if (catMove.x < 0)
+        {
+            sprite.flipX = true;
+        }
+        else if (catMove.x > 0)
+        {
+            sprite.flipX = false;
+        }
         // jump
         if (isGrounded && !isJumping)
         {
