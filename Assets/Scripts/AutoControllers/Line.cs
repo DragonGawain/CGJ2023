@@ -53,9 +53,19 @@ public class Line : MonoBehaviour
     private void FixedUpdate()
     {
         if (isRabbitMoving && !isCatMoving)
-            rabbitMove();
+        {
+            if(!swapped)
+                rabbitMove();
+            else
+                catMove();
+        }
         else if (isCatMoving && !isRabbitMoving)
-            catMove();
+        {
+            if (!swapped)
+                catMove();
+            else
+                rabbitMove();
+        }
         else if (isCatMoving && isRabbitMoving)
             bothMove();
 
@@ -96,13 +106,29 @@ public class Line : MonoBehaviour
             }
         }
 
-        // Rabbit singularity -> rabbit to node 19
+        // PUT FULL BACKWARDS PASS (not just node 20)
+
+
+
+
+        // Rabbit singularity -> rabbit to node 21
         if (Vector3.Distance(Rabbit.transform.position, stringNodes[20].position) > segmentLength)
         {
-            Rabbit.transform.position = Vector3.MoveTowards(
+            // Rabbit.transform.position = Vector3.MoveTowards(
+            //     Rabbit.transform.position,
+            //     stringNodes[20].position,
+            //     pullSpeed
+            // );
+            Vector3 temp = Vector3.MoveTowards(
                 Rabbit.transform.position,
                 stringNodes[20].position,
                 pullSpeed
+            );
+            float tempx = temp.x - Rabbit.transform.position.x;
+            float tempy = temp.y - Rabbit.transform.position.y;
+            Rabbit.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                Rabbit.GetComponent<Rigidbody2D>().velocity.x + tempx * 30,
+                Rabbit.GetComponent<Rigidbody2D>().velocity.y + tempy * 10
             );
         }
 
@@ -115,33 +141,8 @@ public class Line : MonoBehaviour
                 pullSpeed * 2
             );
         }
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-        // PUT FULL BACKWARDS PASS (not just node 20)
-    }
 
-    public void rabbitMove()
-    {
-        // first node singularity (node 19 to rabbit)
-        if (Vector3.Distance(stringNodes[20].position, Rabbit.transform.position) > segmentLength)
-        {
-            stringNodes[20].position = Vector3.MoveTowards(
-                stringNodes[20].position,
-                Rabbit.transform.position,
-                pullSpeed
-            );
-        }
-
-        // rabbit to cat
+        // cat to rabbit
         for (int i = 19; i >= 0; i--)
         {
             if (
@@ -157,6 +158,7 @@ public class Line : MonoBehaviour
             }
         }
 
+        // cat to node 0 (iff string is stretching)
         // Cat singularity -> cat to node 0
         if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
         {
@@ -164,6 +166,71 @@ public class Line : MonoBehaviour
                 Cat.transform.position,
                 stringNodes[0].position,
                 pullSpeed
+            );
+            // Vector3 temp = Vector3.MoveTowards(
+            //     Cat.transform.position,
+            //     stringNodes[0].position,
+            //     pullSpeed
+            // );
+            // float tempx = temp.x - Cat.transform.position.x;
+            // float tempy = temp.y - Cat.transform.position.y;
+            // Cat.GetComponent<Rigidbody2D>().velocity = new Vector2(
+            //     Cat.GetComponent<Rigidbody2D>().velocity.x + tempx * 30,
+            //     Cat.GetComponent<Rigidbody2D>().velocity.y + tempy * 10
+            // );
+        }
+    }
+
+    public void rabbitMove()
+    {
+        // first node singularity (node 19 to rabbit)
+        if (Vector3.Distance(stringNodes[20].position, Rabbit.transform.position) > segmentLength)
+        {
+            stringNodes[20].position = Vector3.MoveTowards(
+                stringNodes[20].position,
+                Rabbit.transform.position,
+                pullSpeed
+            );
+        }
+
+        // cat to rabbit
+        for (int i = 19; i >= 0; i--)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i + 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i + 1].position,
+                    pullSpeed
+                );
+            }
+        }
+
+        // PUT FULL BACKWARDS PASS (not just node 0)
+
+
+
+        // Cat singularity -> cat to node 0
+        if (Vector3.Distance(Cat.transform.position, stringNodes[0].position) > segmentLength)
+        {
+            // Cat.transform.position = Vector3.MoveTowards(
+            //     Cat.transform.position,
+            //     stringNodes[0].position,
+            //     pullSpeed
+            // );
+            Vector3 temp = Vector3.MoveTowards(
+                Cat.transform.position,
+                stringNodes[0].position,
+                pullSpeed
+            );
+            float tempx = temp.x - Cat.transform.position.x;
+            float tempy = temp.y - Cat.transform.position.y;
+            Cat.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                Cat.GetComponent<Rigidbody2D>().velocity.x + tempx * 30,
+                Cat.GetComponent<Rigidbody2D>().velocity.y + tempy * 10
             );
         }
 
@@ -176,18 +243,47 @@ public class Line : MonoBehaviour
                 pullSpeed * 2
             );
         }
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
-        // PUT FULL BACKWARDS PASS (not just node 0)
+
+        // rabbit to cat
+        for (int i = 1; i <= 20; i++)
+        {
+            if (
+                Vector3.Distance(stringNodes[i].position, stringNodes[i - 1].position)
+                > segmentLength
+            )
+            {
+                stringNodes[i].position = Vector3.MoveTowards(
+                    stringNodes[i].position,
+                    stringNodes[i - 1].position,
+                    pullSpeed
+                );
+            }
+        }
+
+        // Rabbit to node 21 (iff string is stretching)
+        // Rabbit singularity -> rabbit to node 21
+        if (
+            Vector3.Distance(Rabbit.transform.position, stringNodes[20].position)
+            > segmentLength
+        )
+        {
+            Rabbit.transform.position = Vector3.MoveTowards(
+                Rabbit.transform.position,
+                stringNodes[20].position,
+                pullSpeed / 1.5f
+            );
+            // Vector3 temp = Vector3.MoveTowards(
+            //     Rabbit.transform.position,
+            //     stringNodes[20].position,
+            //     pullSpeed
+            // );
+            // float tempx = temp.x - Rabbit.transform.position.x;
+            // float tempy = temp.y - Rabbit.transform.position.y;
+            // Rabbit.GetComponent<Rigidbody2D>().velocity = new Vector2(
+            //     Rabbit.GetComponent<Rigidbody2D>().velocity.x + tempx * 30,
+            //     Rabbit.GetComponent<Rigidbody2D>().velocity.y + tempy * 10
+            // );
+        }
     }
 
     public void bothMove()
