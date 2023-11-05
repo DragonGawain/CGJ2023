@@ -45,6 +45,9 @@ public class CatController : MonoBehaviour
     const int dashTimerReset = 20;
     int dashTimer = 0;
 
+    const int fallingJumpTimerReset = 500;
+    int fallingJumpTimer = 0;
+
     private void Awake()
     {
         inputs = new PlayerInputs();
@@ -70,10 +73,26 @@ public class CatController : MonoBehaviour
         catMove = inputs.Player.MoveCat.ReadValue<Vector2>();
         dashDirection = inputs.Player.CatDash.ReadValue<float>();
 
-        body.velocity = new Vector2(
-            Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
-            Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
-        );
+        if (isJumping && !isGrounded && fallingJumpTimer > 0 && !isDashing)
+            body.velocity = new Vector2(
+                Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+                Mathf.Clamp(body.velocity.y, -33.33f, 33.33f)
+            );
+        else if (isJumping && !isGrounded && fallingJumpTimer > 0 && isDashing)
+            body.velocity = new Vector2(
+                body.velocity.x,
+                Mathf.Clamp(body.velocity.y, -33.33f, 33.33f)
+            );
+        else if (!isDashing)
+            body.velocity = new Vector2(
+                Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+                Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
+            );
+        else
+            body.velocity = new Vector2(
+                body.velocity.x,
+                Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
+            );
     }
 
     private void FixedUpdate()
@@ -96,11 +115,10 @@ public class CatController : MonoBehaviour
         {
             line.setCatMoving(false);
         }
-        
+
         if (body.velocity.x != 0)
         {
             animatorController.SetBool("isWalking", true);
-
         }
         else
         {
@@ -174,12 +192,23 @@ public class CatController : MonoBehaviour
 
             animatorController.SetBool("isDashing", false);
         }
+
+        if (fallingJumpTimer >= 0)
+        {
+            fallingJumpTimer--;
+        }
+
+        if (fallingJumpTimer > 0 && !isGrounded)
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y - 0.2f);
+        }
     }
 
     private void jump()
     {
         body.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         hasJumps--;
+        fallingJumpTimer = fallingJumpTimerReset;
     }
 
     private void dash()
@@ -192,5 +221,15 @@ public class CatController : MonoBehaviour
         {
             body.AddForce(-transform.right * dashForce, ForceMode2D.Impulse);
         }
+    }
+
+    public bool getIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool getIsJumping()
+    {
+        return isJumping;
     }
 }

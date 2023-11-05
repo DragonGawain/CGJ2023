@@ -19,8 +19,8 @@ public class RabbitController : MonoBehaviour
     [SerializeField, Range(0f, 100f)]
     float maxSpeed = 12f;
 
-    [SerializeField, Range(0f, 50)]
-    float jumpForce = 15;
+    [SerializeField, Range(0f, 500)]
+    float jumpForce = 80;
     float maxSpeedChange;
 
     [SerializeField]
@@ -32,6 +32,9 @@ public class RabbitController : MonoBehaviour
 
     const int coyoteTimerReset = 5;
     int coyoteTimer = 0;
+
+    const int fallingJumpTimerReset = 500;
+    int fallingJumpTimer = 0;
 
     private void Awake()
     {
@@ -53,10 +56,16 @@ public class RabbitController : MonoBehaviour
         isGrounded = ground.GetIsRabbitGrounded();
         rabbitMove = inputs.Player.MoveRabbit.ReadValue<Vector2>();
 
-        body.velocity = new Vector2(
-            Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
-            Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
-        );
+        if (isJumping && !isGrounded && fallingJumpTimer > 0)
+            body.velocity = new Vector2(
+                Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+                Mathf.Clamp(body.velocity.y, -33.33f, 33.33f)
+            );
+        else
+            body.velocity = new Vector2(
+                Mathf.Clamp(body.velocity.x, -11.11f, 11.11f),
+                Mathf.Clamp(body.velocity.y, -11.11f, 11.11f)
+            );
     }
 
     private void FixedUpdate()
@@ -109,11 +118,32 @@ public class RabbitController : MonoBehaviour
             if (hasJumps == 2)
                 hasJumps = 1;
         }
+
+        if (fallingJumpTimer >= 0)
+        {
+            fallingJumpTimer--;
+        }
+
+        if (fallingJumpTimer > 0 && !isGrounded)
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y - 0.2f);
+        }
     }
 
     private void jump()
     {
         body.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         hasJumps--;
+        fallingJumpTimer = fallingJumpTimerReset;
+    }
+
+    public bool getIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public bool getIsJumping()
+    {
+        return isJumping;
     }
 }
