@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62561a111abed42e9bf63a8c8d160ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateEffect: {fileID: 2353441874173953658, guid: 3953e74ea80120d43b38273674c9238e, type: 3}
+  effectContainer: {fileID: 0}
 --- !u!50 &3581450051777476396
 Rigidbody2D:
   serializedVersion: 4

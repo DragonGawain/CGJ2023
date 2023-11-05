@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Gate : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject gateEffect;
+    [SerializeField]
+    private Transform effectContainer;
+
     bool rabbitWin = false,
         catWin = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Instantiate(gateEffect, effectContainer);
+
         if (other.gameObject.layer == 13)
             catWin = true;
         if (other.gameObject.layer == 14)
