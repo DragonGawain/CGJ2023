@@ -280,6 +280,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 305577012136244495, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ef2eb603cbdb493fa36699794ef984f, type: 3}
+    - target: {fileID: 4343003544565439472, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -312
+      objectReference: {fileID: 0}
     - target: {fileID: 4413819023766668751, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -328,10 +336,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleScreenUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4413819023867278668, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -430
+      objectReference: {fileID: 0}
     - target: {fileID: 4413819023945868483, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
       propertyPath: NavigationEffectContainer
       value: 
       objectReference: {fileID: 380453596}
+    - target: {fileID: 4413819024375115917, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -180.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413819024614224129, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384906377900413748, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384906377900413748, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e7033ec07a24bd4fadf5207dd507baa, type: 3}
 --- !u!1001 &1956523979
