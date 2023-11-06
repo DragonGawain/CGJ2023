@@ -13,6 +13,15 @@ public class Gate : MonoBehaviour
     bool rabbitWin = false,
         catWin = false;
 
+    GameObject lineObject;
+    Line line;
+
+    private void Awake()
+    {
+        lineObject = GameObject.FindWithTag("TheLine");
+        line = lineObject.GetComponent<Line>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Instantiate(gateEffect, effectContainer);
@@ -36,6 +45,7 @@ public class Gate : MonoBehaviour
         if (rabbitWin && catWin)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            line.setSwapFalse();
         }
     }
 }
