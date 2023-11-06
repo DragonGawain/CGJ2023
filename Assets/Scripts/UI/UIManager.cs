@@ -98,6 +98,8 @@ public class UIManager : MonoBehaviour
         Instantiate(SubmitNavigationEffect, NavigationEffectContainer.GetComponent<Transform>());
 
         SceneManager.LoadScene(selectedLevelName);
+        // Post jam comment: if swap is still broken, put a reference to the line, and call line.setSwapFalse()
+        // That should fix it. See Spike or Gate for an example. 
     }
 
     public void OnLevelSelectBackButtonClick()
